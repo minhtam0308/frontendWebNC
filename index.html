@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+<script>
+    $(document).ready(() => {
+        $(".test").click(function () {
+            $(this).siblings(".less").slideToggle("slow");
+            $(this).toggleClass("change");
+        });
+    })
+
+</script>
+
+<style>
+    .test {
+        margin: auto;
+        background-color: burlywood;
+        line-height: 50px;
+    }
+
+    .less {
+        display: none;
+        width: 200px;
+        margin: auto;
+        background-color: blanchedalmond;
+    }
+
+    /* .more {
+        height: 100px;
+        transition: 0.5s;
+    } */
+
+    .change {
+        background-color: aquamarine;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="test" style=" text-align: center; width: 200px;">
+            test 1
+
+        </div>
+        <div class="less">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati natus nemo saepe ipsa expedita, sint,
+            vitae accusantium sequi odio, tempore aspernatur quos aut voluptate earum fugit laboriosam deleniti.
+            Repudiandae, itaque!
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="test" style=" text-align: center; width: 200px;">
+            test 1
+
+        </div>
+        <div class="less">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati natus nemo saepe ipsa expedita, sint,
+            vitae accusantium sequi odio, tempore aspernatur quos aut voluptate earum fugit laboriosam deleniti.
+            Repudiandae, itaque!
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="test" style=" text-align: center; width: 200px;">
+            test 1
+
+        </div>
+        <div class="less">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati natus nemo saepe ipsa expedita, sint,
+            vitae accusantium sequi odio, tempore aspernatur quos aut voluptate earum fugit laboriosam deleniti.
+            Repudiandae, itaque!
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
