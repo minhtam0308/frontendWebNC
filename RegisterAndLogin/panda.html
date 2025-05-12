@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panda Login Form | Coding Vibess</title>
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="panda.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="container container_Login">
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" autocomplete="off" /><br />
+                    <label for="password">Password</label>
+                    <div style=" position: relative;">
+                        <input type="password" id="password" placeholder="Password" />
+                        <i class="fa-regular fa-eye eyeIcon" style="position: absolute;"></i>
+                    </div>
+                    <button>Login</button>
+                </form>
+                <span id="btn_register">Register
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </span>
+                <div class="container container_Reigister">
+                    <form>
+                        <label for="username">Username</label>
+                        <input type="text" id="usernameR" placeholder="Enter username" autocomplete="off" /><br />
+                        <label for="password">Password</label>
+                        <div style=" position: relative;">
+                            <input type="password" id="passwordR" placeholder="Password" />
+                            <i class="fa-regular fa-eye eyeIconR" style="position: absolute;"></i>
+                        </div>
+                        <button id="register_btn">Register</button>
+                    </form>
+                    <span id="btn_login">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Login
+
+
+                    </span>
+                </div>
+
+                <div class="container_bear">
+                    <div class=" ear-l">
+                    </div>
+                    <div class="ear-r"></div>
+                    <div class="panda-face">
+                        <div class="blush-l"></div>
+                        <div class="blush-r"></div>
+                        <div class="eye-l">
+                            <div class="eyeball-l"></div>
+                        </div>
+                        <div class="eye-r">
+                            <div class="eyeball-r"></div>
+                        </div>
+                        <div class="nose"></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="hand-l" style="z-index: 10;"></div>
+                    <div class="hand-r" style="z-index: 10;"></div>
+                    <div class="paw-l" style="z-index: 10;"></div>
+                    <div class="paw-r" style="z-index: 10;"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Script -->
+    <script src="pandaLogin.js"></script>
+    <script src="pandaRegister.js"></script>
+</body>
+
+</html>
