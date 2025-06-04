@@ -1,0 +1,252 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link href="../HomePage/main.css" rel="stylesheet">
+    <link href="./thuvien.css" rel="stylesheet">
+    <script rel="text/javascript" src="../jquery.js"></script>
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Thư viện</title>
+    <script>
+        $(() => {
+            $(".btn-next").click(
+                function () {
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    $('.btn-pre').css({
+                        'display': 'block'
+                    })
+                    $('.card-container').css({
+                        'left': '-800px',
+                        'transition': '1s'
+                    })
+                }
+            )
+            $(".btn-pre").click(
+                function () {
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    $('.btn-next').css({
+                        'display': 'block'
+                    })
+                    $('.card-container').css({
+                        'left': '0',
+                        'transition': '1s'
+                    })
+                }
+            )
+            function startTimer(duration, displayminis, dislaysecond) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    displayminis.textContent = minutes;
+                    dislaysecond.textContent = seconds;
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+            }
+
+            window.onload = function () {
+                var fiveMinutes = 60 * 30,
+                    displayminis = document.querySelector('#minis');
+                displaysecond = document.querySelector('#second');
+                startTimer(fiveMinutes, displayminis, displaysecond);
+            };
+
+        })
+
+    </script>
+</head>
+
+
+
+<body class="dark-background">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">BioLaitBookk</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../HomePage/index.html">Trang chủ</a></li>
+                    <li><a href="#about">Sách mới</a></li>
+                    <li><a href="#features">Sách Hot</a></li>
+                    <li><a href="./index.html" class="active">Thư viện</a></li>
+                    <li><a href="#team">Yêu thích</a></li>
+                    <li><a href="#pricing">Giỏ hàng</a></li>
+                    <li class="dropdown"><a href="#"><span>Tác giả</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Dropdown 1</a></li>
+                                    <li><a href="#">Deep Dropdown 2</a></li>
+                                    <li><a href="#">Deep Dropdown 3</a></li>
+                                    <li><a href="#">Deep Dropdown 4</a></li>
+                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li><a href="#">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+    <section>
+        <div class="container py-3">
+            <div class="bg-white rounded-3 d-flex justify-content-between align-items-center px-4 py-3"
+                style="max-width: 1200px; margin: 0 auto;">
+                <div class="d-flex align-items-center gap-3" style="color: black;">
+                    <span class="flash-sale-text d-flex align-items-center gap-1">
+                        <span style="color: red;">FLA<span style="color:#facc15;">⚡</span>SH SALE</span>
+                    </span>
+                    <span>Kết thúc trong</span>
+                    <div class="d-flex align-items-center gap-1">
+                        <span class="countdown-box">00</span>
+                        <span class="countdown-sep">:</span>
+                        <span class="countdown-box" id="minis">30</span>
+                        <span class="countdown-sep">:</span>
+                        <span class="countdown-box" id="second">00</span>
+                    </div>
+                </div>
+                <a href="#" class="text-primary fw-semibold d-flex align-items-center gap-1"
+                    style="font-size: 0.875rem;">
+                    Xem tất cả ><i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-container px-4">
+            <div class="card-container">
+
+                <!-- Card 1 -->
+                <div class="card bg-white card-custom p-3">
+                    <img src="https://storage.googleapis.com/a1aa/image/bfe6f9a9-abcb-4f20-914c-6217697ade2e.jpg"
+                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                    <h1 class="fs-6 mb-2 title-card">Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)</h1>
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <span class="price-sale">55.000 đ</span>
+                        <span class="discount-badge">-50%</span>
+                    </div>
+                    <div class="price-original mb-3">110.000</div>
+                    <div class="progress-container">
+                        <div class="progress-bar-custom" style="width: 60px;"></div>
+                        <span class="ms-3">Đã bán 12</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card bg-white card-custom p-3">
+                    <img src="https://storage.googleapis.com/a1aa/image/25b5c20b-a99b-4978-382c-35d6a50a34e9.jpg"
+                        alt="Book cover of Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nhất Hạnh, sepia photo of two monks" />
+                    <h3 class="fs-6 mb-2  title-card"">Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nh...
+                    </h3>
+                    <div class=" d-flex align-items-center gap-2 mb-1">
+                        <span class="price-sale">174.500 đ</span>
+                        <span class="discount-badge">-29%</span>
+                </div>
+                <div class="price-original mb-3">249.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar-custom" style="width: 40px;"></div>
+                    <span class="ms-3">Đã bán 11</span>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card bg-white card-custom p-3">
+                <img src="https://storage.googleapis.com/a1aa/image/92e6c536-a846-45dc-bb53-0a98452ee561.jpg"
+                    alt="Book cover of Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ, blue sky with mother and child on bicycle" />
+                <h3 class="fs-6 mb-2 title-card">Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ
+                </h3>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="price-sale">119.500 đ</span>
+                    <span class="discount-badge">-24%</span>
+                </div>
+                <div class="price-original mb-3">159.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar-custom" style="width: 50px;"></div>
+                    <span class="ms-3">Đã bán 14</span>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card bg-white card-custom p-3">
+                <img src="https://storage.googleapis.com/a1aa/image/a9d8b937-69a3-4ac2-c2ac-1891726151ad.jpg"
+                    alt="Book cover of Khi Tài Nguyên Không Còn Khan Hiếm, blue cover with text and graph lines" />
+                <h3 class="fs-6 mb-2 title-card" style="line-height:1.2;">Khi Tài Nguyên Không Còn Khan Hiếm</h3>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="price-sale">122.000 đ</span>
+                    <span class="discount-badge">-35%</span>
+                </div>
+                <div class="price-original mb-3">188.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar-custom" style="width: 60px;"></div>
+                    <span class="ms-3">Đã bán 17</span>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card bg-white card-custom p-3">
+                <img src="https://storage.googleapis.com/a1aa/image/5f0ed566-dd66-4bed-5113-51a5cdc1fdaa.jpg"
+                    alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
+                <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...</h3>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="price-sale">127.000 đ</span>
+                    <span class="discount-badge">-34%</span>
+                </div>
+                <div class="price-original mb-3">195.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar-custom" style="width: 30px;"></div>
+                    <span class="ms-3">Đã bán 5</span>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card bg-white card-custom p-3">
+                <img src="https://storage.googleapis.com/a1aa/image/5f0ed566-dd66-4bed-5113-51a5cdc1fdaa.jpg"
+                    alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
+                <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...</h3>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="price-sale">127.000 đ</span>
+                    <span class="discount-badge">-34%</span>
+                </div>
+                <div class="price-original mb-3">195.000</div>
+                <div class="progress-container">
+                    <div class="progress-bar-custom" style="width: 30px;"></div>
+                    <span class="ms-3">Đã bán 5</span>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        <button class="btn-next" aria-label="Next">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="btn-pre" aria-label="Next">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </section>
+</body>
+
+</html>
