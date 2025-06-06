@@ -5,6 +5,36 @@
     font-family: "Poppins", sans-serif;
 }
 
+.box {
+    width: 200px;
+    background: grey;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    border-radius: 5px;
+    left: -13rem;
+    top: 1rem;
+    background: red;
+}
+
+.triangle:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid red;
+    border-right: 10px solid transparent;
+    border-top: 10px solid red;
+    border-bottom: 10px solid transparent;
+    right: -20px;
+    top: 6px;
+
+}
+
+.loginfail {
+    display: none;
+}
+
 .bg {
     background-image: url('./back_log.jpg');
     background-repeat: no-repeat;

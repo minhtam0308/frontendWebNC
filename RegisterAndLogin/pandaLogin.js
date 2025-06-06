@@ -1,5 +1,5 @@
-let usernameRef = document.getElementById("username");
-let passwordRef = document.getElementById("password");
+let usernameRef = document.getElementById("usernamelogin");
+let passwordRef = document.getElementById("passwordlogin");
 let eyeL = document.querySelector(".eyeball-l");
 let eyeR = document.querySelector(".eyeball-r");
 let handL = document.querySelector(".hand-l");
