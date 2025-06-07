@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Sách Của Tôi-BioLaitBook</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f0f7f1;
+      font-family: 'Inter', sans-serif;
+      color: #0b3d0b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar,
+    footer {
+      background-color: #0b3d0b !important;
+    }
+
+    .navbar-brand,
+    .nav-link,
+    footer,
+    footer a {
+      color: #d6f5d6 !important;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+      color: #a5d6a7 !important;
+    }
+
+    .social-icon {
+      color: #d6f5d6;
+      font-size: 1.25rem;
+      margin-right: 0.75rem;
+    }
+
+    .social-icon:hover {
+      color: #a5d6a7;
+    }
+
+    .card {
+      border: 1px solid #4caf50;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+      z-index: 10;
+    }
+
+    .card-title {
+      color: #0b3d0b;
+      font-weight: 600;
+    }
+
+    .card-text {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-xl p-0">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark px-3 rounded">
+      <a class="navbar-brand bg-success px-3 py-1 rounded" href="#">
+        <img src="z6595130585566_490892b71b14c8f689b9b0446afb8de2.jpg" alt="logo" width="50px" height="50px">
+      </a>
+      <div class="collapse navbar-collapse ms-3" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center gap-3">
+          <li class="nav-item rounded" style="background-color: rgb(64, 224, 157);"><a class="nav-link"
+              href="NewFeature.html">Phát Hành Mới</a></li>
+          <li class="nav-item rounded" style="background-color: rgb(64, 224, 157);"><a class="nav-link"
+              href="MyBook.html">Sách Của Tôi</a></li>
+          <li class="nav-item rounded" style="background-color: rgb(64, 224, 157);"><a class="nav-link"
+              href="Browse.html">Duyệt</a></li>
+          <li class="nav-item rounded" style="background-color: rgb(64, 224, 157);"><a class="nav-link"
+              href="Comunity.html">Cộng Đồng</a></li>
+          <li class="nav-item rounded" style="background-color: rgb(64, 224, 157);"><a class="nav-link"
+              href="BecomeAuthor.html">Trở Thành Tác Giả</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="container-xl my-5 rounded" style="background-color: #a5d6a7;">
+      <h1 class="text-success fw-semibold mb-4">Sách Của Tôi</h1>
+      <p class="mb-4">Danh sách các cuốn sách bạn đã sở hữu hoặc quản lý trên BoilaiBook</p>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Book 1 -->
+        <div class="col">
+          <a href="Browse.html" style="text-decoration: none;">
+            <div class="card h-100">
+              <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+                src="https://storage.googleapis.com/a1aa/image/da4b62e2-99a9-4428-f400-2b83fc5364b8.jpg" width="200" />
+              <div class="card-body">
+                <h5 class="card-title">Nghệ Thuật Chiến Tranh</h5>
+                <p class="card-text">Tác giả: Stephen F. Kaufman</p>
+                <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- Book 2 -->
+        <div class="col">
+          <div class="card h-100">
+            <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+              src="https://storage.googleapis.com/a1aa/image/a5908374-4fde-4255-27c4-488f50748671.jpg" width="200" />
+            <div class="card-body">
+              <h5 class="card-title">Khám Phá Văn Hóa Việt Nam</h5>
+              <p class="card-text">Tác giả: Trần Thị B</p>
+              <p class="card-text text-success fw-semibold">Giá: 180,000₫</p>
+            </div>
+          </div>
+        </div>
+        <!-- Book 3 -->
+        <div class="col">
+          <div class="card h-100">
+            <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+              src="https://storage.googleapis.com/a1aa/image/982592cc-a2c1-49d9-7bdb-be816744042f.jpg" width="200" />
+            <div class="card-body">
+              <h5 class="card-title">Lịch Sử Việt Nam Qua Các Thời Kỳ</h5>
+              <p class="card-text">Tác giả: Lê Văn C</p>
+              <p class="card-text text-success fw-semibold">Giá: 300,000₫</p>
+            </div>
+          </div>
+        </div>
+        <!-- Book 4 -->
+        <div class="col">
+          <div class="card h-100">
+            <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+              src="https://storage.googleapis.com/a1aa/image/aa695515-ff71-4c68-61ce-c341c9c59ba8.jpg" width="200" />
+            <div class="card-body">
+              <h5 class="card-title">Nấu Ăn Việt Nam</h5>
+              <p class="card-text">Tác giả: Phạm Thị D</p>
+              <p class="card-text text-success fw-semibold">Giá: 150,000₫</p>
+            </div>
+          </div>
+        </div>
+        <!-- Book 5 -->
+        <div class="col">
+          <div class="card h-100">
+            <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+              src="https://storage.googleapis.com/a1aa/image/f7a29d00-96bf-463f-bed9-4be5bad4a5bc.jpg" width="200" />
+            <div class="card-body">
+              <h5 class="card-title">Văn Hóa Truyền Thống Việt Nam</h5>
+              <p class="card-text">Tác giả: Nguyễn Thị E</p>
+              <p class="card-text text-success fw-semibold">Giá: 220,000₫</p>
+            </div>
+          </div>
+        </div>
+        <!-- Book 6 -->
+        <div class="col">
+          <div class="card h-100">
+            <img alt="Bìa sách" class="card-img-top rounded-3" height="300"
+              src="https://storage.googleapis.com/a1aa/image/5cd44ca4-4b86-452e-239b-8f726ba8fe1e.jpg" width="200" />
+            <div class="card-body">
+              <h5 class="card-title">Sách Thủ Công Mỹ Nghệ</h5>
+              <p class="card-text">Tác giả: Trần Văn F</p>
+              <p class="card-text text-success fw-semibold">Giá: 190,000₫</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <!-- Chân trang -->
+    <footer class="mt-5 py-5 rounded">
+      <div class="row text-light small">
+        <div class="col-md-3 mb-4 mb-md-0">
+          <div class="bg-success d-inline-block px-3 py-1 rounded fw-semibold mb-3">
+            <img src="z6595130585566_490892b71b14c8f689b9b0446afb8de2.jpg" alt="" width="50px" height="50px">
+          </div>
+          <address class="not-italic mb-3" style="line-height: 1.3;">
+            364 Innovation Drive<br />
+            North Clarendon, VT 05759
+          </address>
+          <p class="mb-3">800-526-2778</p>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Phát Hành Mới</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Duyệt Sách Theo Chủ Đề</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Nghệ Thuật</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Kiến Trúc</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Kinh Doanh</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Dành Cho Trẻ Em</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Sách Tô Màu</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Nấu Ăn</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Thủ Công</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Văn Hóa</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Trò Chơi</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Làm Vườn</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Bán Chạy</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Quà Tặng</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Lịch Sử</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Ngôn Ngữ</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Truyện Tranh</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Võ Thuật</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Văn Học</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Origami</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Tôn Giáo</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Du Lịch & Giải Trí</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Sức Khỏe</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Sách Của Tôi</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Trở Thành Tác Giả</a></li>
+          </ul>
+          <h4 class="fw-semibold mt-4 mb-3">Cộng Đồng</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Blog BioLaitBook</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Diễn Đàn BioLaitBook</a></li>
+          </ul>
+        </div>
+        <div class="col-md-1 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Về Chúng Tôi</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Liên Hệ</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Tuyển Dụng</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
