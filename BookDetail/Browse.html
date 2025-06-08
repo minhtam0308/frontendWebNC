@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Sun Tzu : Nghệ Thuật Chiến Tranh</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/HomePage/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      background-color: #f0f7f1;
+      font-family: 'Inter', sans-serif;
+      color: #0b3d0b;
+    }
+
+    .navbar,footer {
+      background-color: #0b3d0b !important;
+    }
+
+    .navbar-brand,.nav-link,footer,footer a {
+      color: #d6f5d6 !important;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .btn-primary {
+      background-color: #2e7d32;
+      border-color: #2e7d32;
+    }
+
+    .btn-primary:hover {
+      background-color: #276c27;
+      border-color: #276c27;
+    }
+
+    .btn-outline-primary {
+      color: #2e7d32;
+      border-color: #2e7d32;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    .chapter-preview {
+      background-color: #1f4d1f;
+      color: #d6f5d6;
+      width: 150px;
+    }
+
+    .chapter-preview:hover {
+      background-color: #276c27;
+      color: white;
+    }
+
+    .chapter-preview-active {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .breadcrumb-item+.breadcrumb-item::before {
+      color: #2e7d32;
+    }
+
+    .card-title {
+      color: #0b3d0b;
+      font-weight: 600;
+    }
+
+    .card-text {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+
+    .btn-buy {
+      background-color: #4caf50;
+      border-color: #4caf50;
+      color: white;
+    }
+
+    .btn-buy:hover {
+      background-color: #388e3c;
+      border-color: #388e3c;
+      color: white;
+    }
+
+    .btn-buy-outline {
+      border-color: #4caf50;
+      color: #4caf50;
+    }
+
+    .btn-buy-outline:hover {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+      color: #a5d6a7 !important;
+    }
+
+    .social-icon {
+      color: #d6f5d6;
+      font-size: 1.25rem;
+      margin-right: 0.75rem;
+    }
+
+    .social-icon:hover {
+      color: #a5d6a7;
+    }
+
+    .btn-collection {
+      border-color: #4caf50;
+      color: #4caf50;
+    }
+
+    .btn-collection:hover {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .btn-read {
+      background-color: #4caf50;
+      border-color: #4caf50;
+      color: white;
+    }
+
+    .btn-read:hover {
+      background-color: #388e3c;
+      border-color: #388e3c;
+      color: white;
+    }
+
+    .card-similar .btn {
+      background-color: #4caf50;
+      border-color: #4caf50;
+      color: white;
+      font-size: 0.8rem;
+    }
+
+    .card-similar .btn:hover {
+      background-color: #388e3c;
+      border-color: #388e3c;
+      color: white;
+    }
+
+    .chapter-preview-icon {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 991.98px) {
+      aside img {
+        position: static !important;
+        margin: 1rem auto 0;
+        display: block;
+      }
+    }
+
+
+
+    /* Reviews section */
+    .reviews-section {
+      margin-top: 5rem;
+    }
+    .reviews-section > h2 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      color: var(--green-primary-dark);
+      margin-bottom: 2rem;
+      user-select: text;
+    }
+    .review-list {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: nowrap;
+    }
+    .review-card {
+      border: 1px solid #4caf50;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      background-color: white;
+
+    }
+    .review-card:hover,.review-card:focus-visible {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+      z-index: 10;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--green-primary);
+      user-select: text;
+    }
+    .review-stars {
+      color:#f4c150;
+      font-size: 1.3rem;
+      user-select: none;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+    .review-text {
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.5;
+      user-select: text;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- Navbar -->
+        <header id="header" class="header d-flex align-items-center position-relative bg">
+    <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+        <a href="index.html" class="logo d-flex align-items-center">
+            <h1 class="sitename">BioLaitBook</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="/HomePage/" class="home-page">Trang chủ</a></li>
+                <li><a href="/HomePage/catagory.html" class="cata-gory">Danh mục</a></li>
+                <li><a href="/BookDetail/BecomeAuthor.html">Tác giả</a></li>
+                <li><a href="/BookDetail/NewFeature.html">Sách mới</a></li>
+                <li><a href="/thuvien/Noibat.html" class="noibatt">Nổi bật</a></li>
+                <li><a href="/BookDetail/MyBook.html">Đã mua</a></li>
+                <li><a href="/BookDetail/ShoppingCart.html">Giỏ hàng</a></li>
+                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg "><span>Bài viết</span> <i
+                            class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        <li><a href="/HomePage/blog.html">Các bài viết</a></li>
+                       
+                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/HomePage/contactt.html" class="contact">Liên hệ</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+    </div>
+</header>
+    <!-- Nội dung chính -->
+    <main
+      class="text-light p-4 p-lg-5 rounded-3 mt-3 d-flex flex-column flex-lg-row justify-content-between align-items-start rounded" style="background-color: #45622d;">
+      <section class="flex-grow-1 me-lg-4">
+        <h1 class="display-6 fw-semibold mb-3">Sun Tzu : Nghệ Thuật Chiến Tranh</h1>
+        <p class="small mb-3" style="max-width: 480px;">
+          Sun Tzu’s Nghệ Thuật Chiến Tranh vẫn là một trong những tác phẩm có ảnh hưởng nhất về tư duy chiến lược. Áp
+          dụng ở mọi nơi từ phòng họp đến phòng ngủ, từ sân chơi đến chiến trường, trí tuệ của nó chưa bao giờ được đánh
+          giá cao hơn.
+        </p>
+        <p class="small mb-4"><strong>Tác giả :</strong> Stephen F. Kaufman</p>
+        <div class="d-flex flex-wrap gap-3 mb-4 small" style="max-width: 480px;">
+          <div class="d-flex align-items-center gap-2">Tiếng Anh</div>
+          <div class="d-flex align-items-center gap-2">13 Chương</div>
+          <div class="d-flex align-items-center gap-2">Đang Xu Hướng</div>
+          <div class="d-flex align-items-center gap-2">Có PDF</div>
+        </div>
+        <div class="d-flex gap-3 mb-4" style="max-width: 480px;">
+          <a href="Payment.html"><button class="btn btn-success fw-semibold px-4">Mua với giá: 250.000đ</button></a>
+          <a href="ShoppingCart.html"><button class="btn btn-outline-light fw-semibold px-4">Thêm vào giỏ</button></a>
+        </div>
+        <div class="d-flex flex-column flex-sm-row text-center text-sm-start rounded shadow"
+          style="max-width: 500px; background-color: #1f4d1f;">
+          <div class="flex-fill p-3 border-bottom border-sm-bottom-0 border-sm-end border-success">
+            <h3 class="h6 fw-semibold mb-1">Chương 1</h3>
+            <p class="small mb-2 text-light" style="height: 150px;">Những cân nhắc và ước lượng cho chiến tranh</p>
+            <button class="btn chapter-preview d-inline-flex align-items-center gap-2">Đọc thử</button>
+          </div>
+          <div class="flex-fill p-3 border-bottom border-sm-bottom-0 border-sm-end border-success">
+            <h3 class="h6 fw-semibold mb-1">Chương 2</h3>
+            <p class="small mb-2 text-light" style="height: 150px;">Chuẩn bị cho chiến tranh</p>
+            <button class="btn chapter-preview d-inline-flex align-items-center gap-2">Đọc thử</button>
+          </div>
+          <div class="d-flex align-items-center justify-content-center p-3 chapter-preview-active cursor-pointer" style="min-width: 140px;">
+            <span class="ms-2 fw-semibold">Xem bản xem trước chương</span>
+          </div>
+        </div>
+      </section>
+      <aside class="d-none d-lg-block position-relative" style="width: 200px; min-height: 400px;">
+        <img alt="Bìa sách" class="position-absolute top-0 end-0 rounded" height="550" width="400" src="OIP.jpg" >
+      </aside>
+    </main>
+
+    <section class="reviews-section rounded" aria-label="Đánh giá của khách hàng" style="background-color: #a7c6a8;">
+      <h2 tabindex="0">Độc giả nói gì</h2>
+      <div class="review-list">
+        <article class="review-card" tabindex="0">
+          <div class="review-header">
+            <span class="reviewer-name">Đặng Minh Tâm</span>
+            <span class="review-stars" aria-label="5 trên 5 sao" role="img">★★★★★</span>
+          </div>
+          <p class="review-text">
+            Câu chuyện hấp dẫn và thế giới sống động! Các nhân vật cảm thấy rất thực, tôi không thể đặt sách xuống cho đến khi kết thúc.
+          </p>
+        </article>
+
+        <article class="review-card" tabindex="0">
+          <div class="review-header">
+            <span class="reviewer-name">Thái Minh Hiếu</span>
+            <span class="review-stars" aria-label="4 trên 5 sao" role="img">★★★★☆</span>
+          </div>
+          <p class="review-text">
+            Viết rất đẹp với bầu không khí huyền bí. Một vài tình tiết bất ngờ. Rất đáng để khuyên cho những người yêu thích thể loại giả tưởng.
+          </p>
+        </article>
+
+        <article class="review-card" tabindex="0">
+          <div class="review-header">
+            <span class="reviewer-name">Trương Văn Kiệt</span>
+            <span class="review-stars" aria-label="4 trên 5 sao" role="img">★★★★☆</span>
+          </div>
+          <p class="review-text">
+            Hấp dẫn từ đầu đến cuối. Tốc độ câu chuyện rất tốt và các mô tả thực sự mang khu rừng đến với cuộc sống.
+          </p>
+        </article>
+
+        <article class="review-card" tabindex="0">
+          <div class="review-header">
+            <span class="reviewer-name">Đặng Minh Tâm</span>
+            <span class="review-stars" aria-label="5 trên 5 sao" role="img">★★★★★</span>
+          </div>
+          <p class="review-text">
+            Một hành trình mê hoặc với những nhân vật tuyệt vời và một câu chuyện hấp dẫn. Tôi đã yêu từng khoảnh khắc!
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sẵn sàng để được truyền cảm hứng -->
+    <section
+      class="bg-f0f7f1 p-4 p-lg-5 mt-4 rounded d-flex flex-column flex-md-row align-items-center justify-content-between text-success"
+      style="background-color: #bfd6aa;">
+      <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
+        <img alt="Bìa sách" class="img-fluid rounded" height="180" src="OIP.jpg" width="120">
+        <div>
+          <h3 class="fw-semibold fs-5 mb-1">Bạn cũng muốn được truyền cảm hứng?</h3>
+          <p class="small mb-2">
+            Đọc <strong>Sun Tzu : Nghệ Thuật Chiến Tranh</strong> ngay bây giờ và được truyền cảm hứng như
+            <strong>8,849</strong> người khác
+          </p>
+          <a href="Payment.html"><button class="btn btn-buy d-inline-flex align-items-center gap-2 mb-2">Mua và Đọc Ngay</button></a>
+          <br />
+          <button class="btn btn-buy-outline px-4">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div class="d-none d-md-flex justify-content-center align-items-center fs-2">
+        <button aria-label="Đánh dấu" class="btn btn-link text-success p-0"><i class="fas fa-bookmark"></i></button>
+      </div>
+      <div class="text-center text-md-end small">
+        <p class="mb-1">Hoặc đọc sách từ</p>
+        <p class="fw-semibold mb-1">Bộ Sưu Tập Của Tôi</p>
+        <a href="MyBook.html"><button class="btn btn-collection px-4">Mở Bộ Sưu Tập</button></a>
+      </div>
+    </section>
+
+    <!-- Sách tương tự -->
+    <section class="bg-f0f7f1 p-4 p-lg-5 mt-4 rounded" style="background-color: #8ecf98;">
+      <h3 class="fw-semibold fs-6 mb-4 text-success">Tìm kiếm các cuốn sách tương tự?</h3>
+      <div class="d-flex overflow-auto gap-3 text-success small">
+        <div class="card card-similar flex-shrink-0" style="width: 150px;">
+          <img alt="Bìa sách" class="card-img-top rounded-3" height="120" width="80" src="OIP.jpg"  />
+          <div class="card-body p-2">
+            <p class="card-title mb-1" style="height: 100px;">Musashi : Quyển Ngũ Luân</p>
+            <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+            <a href="Payment.html"><button class="btn btn-primary w-100">Mua Ngay</button></a>
+          </div>
+        </div>
+        <div class="card card-similar flex-shrink-0" style="width: 150px;">
+          <img alt="Bìa sách" class="card-img-top rounded-3" height="120" width="80" src="OIP.jpg"  />
+          <div class="card-body p-2">
+            <p class="card-title mb-1" style="height: 100px;">Musashi : Quyển Ngũ Luân</p>
+            <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+            <a href="Payment.html"><button class="btn btn-primary w-100">Mua Ngay</button></a>
+          </div>
+        </div>
+        <div class="card card-similar flex-shrink-0" style="width: 150px;">
+          <img alt="Bìa sách" class="card-img-top rounded-3" height="120" width="80" src="OIP.jpg"  />
+          <div class="card-body p-2">
+            <p class="card-title mb-1" style="height: 100px;">Musashi : Quyển Ngũ Luân</p>
+            <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+            <a href="Payment.html"><button class="btn btn-primary w-100">Mua Ngay</button></a>
+          </div>
+        </div>
+        <div class="card card-similar flex-shrink-0" style="width: 150px;">
+          <img alt="Bìa sách" class="card-img-top rounded-3" height="120" width="80" src="OIP.jpg"  />
+          <div class="card-body p-2">
+            <p class="card-title mb-1" style="height: 100px;">Musashi : Quyển Ngũ Luân</p>
+            <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+            <a href="Payment.html"><button class="btn btn-primary w-100">Mua Ngay</button></a>
+          </div>
+        </div>
+        <div class="card card-similar flex-shrink-0" style="width: 150px;">
+          <img alt="Bìa sách" class="card-img-top rounded-3" height="120" width="80" src="OIP.jpg"  />
+          <div class="card-body p-2">
+            <p class="card-title mb-1" style="height: 100px;">Musashi : Quyển Ngũ Luân</p>
+            <p class="card-text text-success fw-semibold">Giá: 250,000₫</p>
+            <a href="Payment.html"><button class="btn btn-primary w-100">Mua Ngay</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chân trang -->
+    <footer class="mt-5 py-5 rounded">
+      <div class="row text-light small">
+        <div class="col-md-3 mb-4 mb-md-0">
+          <div class="bg-success d-inline-block px-3 py-1 rounded fw-semibold mb-3"><img
+              src="z6595130585566_490892b71b14c8f689b9b0446afb8de2.jpg" alt="" width="50px" height="50px"></div>
+          <address class="not-italic mb-3" style="line-height: 1.3;">
+            364 Innovation Drive<br />
+            North Clarendon, VT 05759
+          </address>
+          <p class="mb-3">800-526-2778</p>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Phát Hành Mới</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Duyệt Sách Theo Chủ Đề</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Nghệ Thuật</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Kiến Trúc</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Kinh Doanh</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Dành Cho Trẻ Em</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Sách Tô Màu</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Nấu Ăn</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Thủ Công</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Văn Hóa</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Trò Chơi</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Làm Vườn</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Bán Chạy</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Quà Tặng</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Lịch Sử</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Ngôn Ngữ</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Truyện Tranh</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Võ Thuật</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Văn Học</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Origami</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Tôn Giáo</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Du Lịch & Giải Trí</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Sức Khỏe</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Sách Của Tôi</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Trở Thành Tác Giả</a></li>
+          </ul>
+          <h4 class="fw-semibold mt-4 mb-3">Cộng Đồng</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Blog BioLaitBook</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Diễn Đàn BioLaitBook</a></li>
+          </ul>
+        </div>
+        <div class="col-md-1 mb-4 mb-md-0">
+          <h4 class="fw-semibold mb-3">Về Chúng Tôi</h4>
+          <ul class="list-unstyled">
+            <li><a class="footer-link text-decoration-none" href="#">Liên Hệ</a></li>
+            <li><a class="footer-link text-decoration-none" href="#">Tuyển Dụng</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
