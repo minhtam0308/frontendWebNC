@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sách</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="footer.css">
+    <link href="card.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<script>
+    // luôn load mới css
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Bỏ qua link CDN hoặc URL đã có "?"
+        if (!href || href.includes('http') || href.includes('?')) return;
+
+        // Gắn timestamp để phá cache
+        const newHref = `${href}?v=${Date.now()}`;
+        link.setAttribute('href', newHref);
+    });
+</script>
+<style>
+    .wrapp {
+      background-color: #6b7f2f;
+      padding: 50px;
+      height: 100vh;
+      border-radius: 20px;
+    }
+    .form-container {
+      background: white;
+      padding: 40px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+    .btn-send {
+      background-color: #c9dc52;
+      color: #000;
+      border: none;
+    }
+    .btn-send:hover {
+      background-color: #b0c93e;
+    }
+  </style>
+<body>
+    <div class="wrapper">
+        <div class="wrap">
+            <div class="arrow animated bounce"></div>
+            <header id="header" class="header d-flex align-items-center fixed-top bg">
+                <div
+                    class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <h1 class="sitename">BioLaitBook</h1>
+                    </a>
+
+                    <nav id="navmenu" class="navmenu">
+                        <ul>
+                            <li><a href="#hero" class="active">Trang chủ</a></li>
+                            <li><a href="#about">Sách mới</a></li>
+                            <li><a href="#features">Sách Hot</a></li>
+                            <li><a href="#gallery">Thư viện</a></li>
+                            <li><a href="#team">Yêu thích</a></li>
+                            <li><a href="#pricing">Giỏ hàng</a></li>
+                            <li class="dropdown"><a href="#"><span>Tác giả</span> <i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Dropdown 1</a></li>
+                                    <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                        <ul>
+                                            <li><a href="#">Deep Dropdown 1</a></li>
+                                            <li><a href="#">Deep Dropdown 2</a></li>
+                                            <li><a href="#">Deep Dropdown 3</a></li>
+                                            <li><a href="#">Deep Dropdown 4</a></li>
+                                            <li><a href="#">Deep Dropdown 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Dropdown 2</a></li>
+                                    <li><a href="#">Dropdown 3</a></li>
+                                    <li><a href="#">Dropdown 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact">Liên hệ</a></li>
+                        </ul>
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                    </nav>
+
+                </div>
+            </header>
+            <section id="hero" class="hero section" style="width: 100%; height: 30%; min-height: 30vh;">
+                <img src="/Img/banner-image-bg-1.jpg" alt="" class="hero-bg">
+
+                <div class="container sticky-part">
+                    <div class="row gy-4 justify-content-between">
+                    </div>
+                </div>
+
+                <svg class="hero-waves" id="wave-anim" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+                    <defs>
+                        <path id="wave-path"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+                        </path>
+                    </defs>
+                    <g class="wave1">
+                        <use xlink:href="#wave-path" x="50" y="3"></use>
+                    </g>
+                    <g class="wave2">
+                        <use xlink:href="#wave-path" x="50" y="0"></use>
+                    </g>
+                    <g class="wave3">
+                        <use xlink:href="#wave-path" x="50" y="9"></use>
+                    </g>
+                </svg>
+
+            </section>
+            <!-- <div class="cata m-auto cata1 text-center mt-5 p-3 fader">
+               
+            </div> -->
+            <div class="container wrapp">
+                <div class="row">
+                  <!-- Left Column -->
+                  <div class="col-md-6 text-white">
+                    <h2 class="fw-bold">Contact with us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Quasi optio numquam pariatur amet laudantium...</p>
+                    <p>Dolor aliquid, commodi vitae... <br>
+                       <strong><a href="mailto:info@mywebsite.com" class="text-warning">info@mywebsite.com</a></strong></p>
+                  </div>
+              
+                  <!-- Right Column - Form -->
+                  <div class="col-md-6">
+                    <div class="form-container">
+                      <h6 class="text-muted text-center mb-4">HOW CAN WE HELP?</h6>
+                      <form id="contactForm">
+                        <div class="row mb-3">
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Your name" name="name" required>
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Your organization" name="organization">
+                          </div>
+                        </div>
+              
+                        <div class="mb-3">
+                          <input type="email" class="form-control" placeholder="Your email address" name="email" required>
+                        </div>
+              
+                        <div class="mb-3">
+                          <textarea class="form-control" rows="4" placeholder="Project Description" name="description" required></textarea>
+                        </div>
+              
+                        <div class="row mb-3">
+                          <div class="col">
+                            <select class="form-select" name="budget">
+                              <option selected>Choose...</option>
+                              <option value="1000-5000">$1,000 - $5,000</option>
+                              <option value="5000-10000">$5,000 - $10,000</option>
+                              <option value="10000+">$10,000+</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Example: January 15th" name="launch">
+                          </div>
+                        </div>
+              
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-send">Send Message</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <footer id="footer" class="padding-large footer mt-5 fader">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="footer-top-area">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu">
+                                <img src="/Img/Logo.png" style="width: 70%;" alt="logo"
+                                    class="img-fluid mb-2 rounded-3">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A aliquam ad assumenda iure
+                                    amet magnam saepe, aut voluptate suscipit neque atque architecto, at numquam
+                                    cupiditate excepturi sequi culpa vel minima?.</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Quick Links</h5>
+                                <ul class="menu-list list-unstyled text-capitalize">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">About</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Blogs</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Help & Info Help</h5>
+                                <ul class="menu-list list-unstyled">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Track Your Order</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Returns Policies</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shipping + Delivery</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact Us</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Faqs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu contact-item">
+                                <h5 class="widget-title text-capitalize pb-2">Contact Us</h5>
+                                <p>Do you have any queries or suggestions? <a href="mailto:"
+                                        class="text-decoration-underline">yourinfo@gmail.com</a></p>
+                                <p>If you need support? Just give us a call. <a href="#"
+                                        class="text-decoration-underline">+55 111 222
+                                        333 44</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <hr>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>
