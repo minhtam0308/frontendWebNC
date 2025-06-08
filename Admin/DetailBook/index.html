@@ -16,7 +16,10 @@
         Ảnh minh họa
        </th>
        <th scope="col">
-        Tên
+        Tên sách
+       </th>
+       <th scope="col">
+        Số lượng
        </th>
        <th scope="col">
         Tác giả
@@ -55,6 +58,15 @@
          <input class="form-control" id="edit-book-title" minlength="2" required="" type="text"/>
          <div class="invalid-feedback">
           Nhập tối thiểu 2 ký tự.
+         </div>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="edit-book-number">
+          Số lượng
+         </label>
+         <input class="form-control" id="edit-book-number" minlength="1" required="" type="text"/>
+         <div class="invalid-feedback">
+          Nhập tối thiểu 1 ký tự.
          </div>
         </div>
         <div class="mb-3">
@@ -140,6 +152,7 @@
             "55.000đ",
           cover:
             "/Img/sale1.webp",
+          number: "50"
         },
         {
           id: 2,
@@ -149,6 +162,7 @@
             "52.000đ",
           cover:
             "/Img/sale2.webp",
+          number: "50"
         },
         {
           id: 3,
@@ -157,6 +171,7 @@
           description:
             "75.000đ",
           cover: "/Img/sale3.webp",
+          number: "50"
         },
         {
           id: 4,
@@ -166,6 +181,7 @@
             "55.000đ",
           cover:
             "/Img/sale4.webp",
+          number: "50"
         },
         {
           id: 5,
@@ -174,6 +190,7 @@
           description:
             "52.000đ",
           cover: "/Img/sale5.webp",
+          number: "50"
         },
       ];
 
@@ -188,7 +205,7 @@
       const editBookDescriptionInput = document.getElementById("edit-book-description");
       const editBookCoverInput = document.getElementById("edit-book-cover");
       const editCoverPreview = document.getElementById("edit-cover-preview");
-
+      const editBookNumber = document.getElementById("edit-book-number");
       const confirmDeleteBtn = document.getElementById("confirm-delete-btn");
 
       let bookToDeleteId = null;
@@ -219,6 +236,12 @@
           const tdTitle = document.createElement("td");
           tdTitle.textContent = book.title;
           tr.appendChild(tdTitle);
+
+
+          //number
+          const tdNumber = document.createElement("td");
+          tdNumber.textContent = book.number;
+          tr.appendChild(tdNumber);
 
           // Author
           const tdAuthor = document.createElement("td");
@@ -269,6 +292,9 @@
         editBookAuthorInput.value = book.author;
         editBookDescriptionInput.value = book.description;
         editBookCoverInput.value = book.cover;
+        
+        editBookNumber.value = book.number;
+
         editCoverPreview.src = book.cover;
         editCoverPreview.alt = `Cover image of the book titled ${book.title} by ${book.author}`;
 
@@ -306,7 +332,7 @@
         books[bookIndex].author = editBookAuthorInput.value.trim();
         books[bookIndex].description = editBookDescriptionInput.value.trim();
         books[bookIndex].cover = editBookCoverInput.value.trim();
-
+        books[bookIndex].number = editBookNumber.value.trim();
         editBookModal.hide();
         renderTable();
       });
