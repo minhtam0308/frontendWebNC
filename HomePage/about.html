@@ -1,0 +1,252 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sách</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="footer.css">
+    <link href="card.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<script>
+    // luôn load mới css
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Bỏ qua link CDN hoặc URL đã có "?"
+        if (!href || href.includes('http') || href.includes('?')) return;
+
+        // Gắn timestamp để phá cache
+        const newHref = `${href}?v=${Date.now()}`;
+        link.setAttribute('href', newHref);
+    });
+    // Scroll effect - show .fade-in when in viewport
+    $(window).on('scroll', function() {
+      $('.fade-in').each(function() {
+        const elemTop = $(this).offset().top;
+        const scroll = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        if (scroll + windowHeight > elemTop + 50) {
+          $(this).addClass('show');
+        }
+      });
+    });
+  </script>
+<style>
+    
+    .about-section {
+      padding: 80px 0;
+    }
+    .about-img {
+      border-radius: 10px;
+      transition: transform 0.4s ease, box-shadow 0.3s;
+    }
+    .about-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .about-content h2 {
+      font-weight: bold;
+      color: #4a4a4a;
+      text-shadow: #4a4a4a;
+    }
+    .about-content p {
+      color: #666;
+    }
+
+    .about-content{
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(26, 204, 141, 0.3); 
+    }
+  </style>
+<body>
+    <div class="wrapper">
+        <div class="wrap">
+            <div class="arrow animated bounce"></div>
+            <header id="header" class="header d-flex align-items-center fixed-top bg">
+                <div
+                    class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <h1 class="sitename">BioLaitBook</h1>
+                    </a>
+
+                    <nav id="navmenu" class="navmenu">
+                        <ul>
+                            <li><a href="#hero" class="active">Trang chủ</a></li>
+                            <li><a href="#about">Sách mới</a></li>
+                            <li><a href="#features">Sách Hot</a></li>
+                            <li><a href="#gallery">Thư viện</a></li>
+                            <li><a href="#team">Yêu thích</a></li>
+                            <li><a href="#pricing">Giỏ hàng</a></li>
+                            <li class="dropdown"><a href="#"><span>Tác giả</span> <i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Dropdown 1</a></li>
+                                    <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                        <ul>
+                                            <li><a href="#">Deep Dropdown 1</a></li>
+                                            <li><a href="#">Deep Dropdown 2</a></li>
+                                            <li><a href="#">Deep Dropdown 3</a></li>
+                                            <li><a href="#">Deep Dropdown 4</a></li>
+                                            <li><a href="#">Deep Dropdown 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Dropdown 2</a></li>
+                                    <li><a href="#">Dropdown 3</a></li>
+                                    <li><a href="#">Dropdown 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact">Liên hệ</a></li>
+                        </ul>
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                    </nav>
+
+                </div>
+            </header>
+            <section id="hero" class="hero section" style="width: 100%; height: 30%; min-height: 30vh;">
+                <img src="/Img/banner-image-bg-1.jpg" alt="" class="hero-bg">
+
+                <div class="container sticky-part">
+                    <div class="row gy-4 justify-content-between">
+                    </div>
+                </div>
+
+                <svg class="hero-waves" id="wave-anim" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+                    <defs>
+                        <path id="wave-path"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+                        </path>
+                    </defs>
+                    <g class="wave1">
+                        <use xlink:href="#wave-path" x="50" y="3"></use>
+                    </g>
+                    <g class="wave2">
+                        <use xlink:href="#wave-path" x="50" y="0"></use>
+                    </g>
+                    <g class="wave3">
+                        <use xlink:href="#wave-path" x="50" y="9"></use>
+                    </g>
+                </svg>
+
+            </section>
+            <!-- <div class="cata m-auto cata1 text-center mt-5 p-3 fader">
+               
+            </div> -->
+            <section class="about-section">
+                <div class="container">
+                  <div class="row align-items-center">
+                    
+                    <!-- Image -->
+                    <div class="col-md-6 mb-4 fade-in">
+                      <img style="height: 700px;" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902" class="img-fluid about-img" alt="Team working">
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="col-md-6 about-content fade-in">
+                      <h2 class="mb-3">About Our Company</h2>
+                      <p>BiolaitBook là nơi hội tụ của tri thức, khám phá và cảm hứng dành cho những ai yêu sách và đam mê tìm hiểu thế giới sinh học. Chúng tôi mang đến một thư viện phong phú với các đầu sách chọn lọc, từ kiến thức nền tảng đến những nghiên cứu mới nhất – giúp bạn tiếp cận khoa học một cách dễ hiểu, sâu sắc và truyền cảm hứng.</p>
+                      <p>Với sứ mệnh kết nối tri thức và cộng đồng, BiolaitBook không chỉ là nơi đọc sách, mà còn là không gian chia sẻ, thảo luận và khám phá những điều kỳ diệu trong từng trang sách.</p>
+                      <p>Cùng chúng tôi lan tỏa tình yêu với tri thức, từng bước nuôi dưỡng một thế hệ hiểu – nghĩ – và sống vì khoa học!</p>
+                      <a href="#contact" class="btn btn-outline-dark mt-3">Contact Us</a>
+                    </div>
+              
+                  </div>
+                </div>
+              </section>
+        </div>
+    </div>
+    <footer id="footer" class="padding-large footer mt-5 fader">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="footer-top-area">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu">
+                                <img src="/Img/Logo.png" style="width: 70%;" alt="logo"
+                                    class="img-fluid mb-2 rounded-3">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A aliquam ad assumenda iure
+                                    amet magnam saepe, aut voluptate suscipit neque atque architecto, at numquam
+                                    cupiditate excepturi sequi culpa vel minima?.</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Quick Links</h5>
+                                <ul class="menu-list list-unstyled text-capitalize">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">About</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Blogs</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Help & Info Help</h5>
+                                <ul class="menu-list list-unstyled">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Track Your Order</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Returns Policies</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shipping + Delivery</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact Us</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Faqs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu contact-item">
+                                <h5 class="widget-title text-capitalize pb-2">Contact Us</h5>
+                                <p>Do you have any queries or suggestions? <a href="mailto:"
+                                        class="text-decoration-underline">yourinfo@gmail.com</a></p>
+                                <p>If you need support? Just give us a call. <a href="#"
+                                        class="text-decoration-underline">+55 111 222
+                                        333 44</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <hr>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sách</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="footer.css">
+    <link href="card.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="proCard.css">
+</head>
+<script>
+    // luôn load mới css
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Bỏ qua link CDN hoặc URL đã có "?"
+        if (!href || href.includes('http') || href.includes('?')) return;
+
+        // Gắn timestamp để phá cache
+        const newHref = `${href}?v=${Date.now()}`;
+        link.setAttribute('href', newHref);
+    });
+
+</script>
+
+<body>
+    <div class="wrapper">
+        <div class="wrap">
+            <div class="arrow animated bounce"></div>
+            <header id="header" class="header d-flex align-items-center fixed-top bg">
+                <div
+                    class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <h1 class="sitename">BioLaitBook</h1>
+                    </a>
+
+                    <nav id="navmenu" class="navmenu">
+                        <ul>
+                            <li><a href="#hero" class="active">Trang chủ</a></li>
+                            <li><a href="#about">Sách mới</a></li>
+                            <li><a href="#features">Sách Hot</a></li>
+                            <li><a href="#gallery">Thư viện</a></li>
+                            <li><a href="#team">Yêu thích</a></li>
+                            <li><a href="#pricing">Giỏ hàng</a></li>
+                            <li class="dropdown"><a href="#"><span>Tác giả</span> <i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Dropdown 1</a></li>
+                                    <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                        <ul>
+                                            <li><a href="#">Deep Dropdown 1</a></li>
+                                            <li><a href="#">Deep Dropdown 2</a></li>
+                                            <li><a href="#">Deep Dropdown 3</a></li>
+                                            <li><a href="#">Deep Dropdown 4</a></li>
+                                            <li><a href="#">Deep Dropdown 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Dropdown 2</a></li>
+                                    <li><a href="#">Dropdown 3</a></li>
+                                    <li><a href="#">Dropdown 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact">Liên hệ</a></li>
+                        </ul>
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                    </nav>
+
+                </div>
+            </header>
+            <section id="hero" class="hero section" style="width: 100%; height: 30%; min-height: 30vh;">
+                <img src="/Img/banner-image-bg-1.jpg" alt="" class="hero-bg">
+
+                <div class="container sticky-part">
+                    <div class="row gy-4 justify-content-between">
+                    </div>
+                </div>
+
+                <svg class="hero-waves" id="wave-anim" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+                    <defs>
+                        <path id="wave-path"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+                        </path>
+                    </defs>
+                    <g class="wave1">
+                        <use xlink:href="#wave-path" x="50" y="3"></use>
+                    </g>
+                    <g class="wave2">
+                        <use xlink:href="#wave-path" x="50" y="0"></use>
+                    </g>
+                    <g class="wave3">
+                        <use xlink:href="#wave-path" x="50" y="9"></use>
+                    </g>
+                </svg>
+
+            </section>
+            <!-- <div class="cata m-auto cata1 text-center mt-5 p-3 fader">
+               
+            </div> -->
+            <div class="container catagory mt-5">
+
+                <h2 class="text-start mb-4 text-black">Danh mục: Khoa học</h2>
+                <h4 class="text-start mb-4 text-black">Mang đến kiến thức rõ ràng, khách quan và hệ thống về thế giới tự
+                    nhiên, công nghệ, vũ trụ, sinh học, vật lý và nhiều lĩnh vực khác. Với nội dung được trình bày logic
+                    và thường đi kèm minh họa sinh động, sách giúp người đọc hiểu sâu hơn về các quy luật vận hành của
+                    tự nhiên và ứng dụng khoa học vào đời sống.</h4>
+                <div class="book-cards-isolated container py-4">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mb-3">
+
+                        <!-- Card sản phẩm -->
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach7.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach8.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach9.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach10.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mb-3">
+
+                        <!-- Card sản phẩm -->
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach11.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach12.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mb-3">
+
+                        <!-- Card sản phẩm -->
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="book-card">
+                                <div class="book-card-img">
+                                    <img src="/Img/sach1.jpg" alt="Book Cover">
+                                    <div class="book-actions">
+                                        <button class="action-btn"><i
+                                                class="material-icons">add_shopping_cart</i></button>
+                                        <button class="action-btn"><i
+                                                class="material-icons">favorite_border</i></button>
+                                    </div>
+                                    <div class="discount-badge">10% off</div>
+                                </div>
+                                <div class="book-card-body">
+                                    <h6 class="book-title">Book Title Here</h6>
+                                    <p class="book-author">Lauren Asher <span class="stars">★★★★★</span></p>
+                                    <p class="book-price">$870</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <nav aria-label="..." class=" pb-5 mb-5">
+                <ul class="pagination  justify-content-center">
+                  <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item ">
+                    <a class="page-link" href="#" aria-current="page">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+    <footer id="footer" class="padding-large footer mt-5 fader">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="footer-top-area">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu">
+                                <img src="/Img/Logo.png" style="width: 70%;" alt="logo"
+                                    class="img-fluid mb-2 rounded-3">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A aliquam ad assumenda iure
+                                    amet magnam saepe, aut voluptate suscipit neque atque architecto, at numquam
+                                    cupiditate excepturi sequi culpa vel minima?.</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Quick Links</h5>
+                                <ul class="menu-list list-unstyled text-capitalize">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">About</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Blogs</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu text-capitalize">
+                                <h5 class="widget-title pb-2">Help & Info Help</h5>
+                                <ul class="menu-list list-unstyled">
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Track Your Order</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Returns Policies</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Shipping + Delivery</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Contact Us</a>
+                                    </li>
+                                    <li class="menu-item mb-1">
+                                        <a href="#">Faqs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu contact-item">
+                                <h5 class="widget-title text-capitalize pb-2">Contact Us</h5>
+                                <p>Do you have any queries or suggestions? <a href="mailto:"
+                                        class="text-decoration-underline">yourinfo@gmail.com</a></p>
+                                <p>If you need support? Just give us a call. <a href="#"
+                                        class="text-decoration-underline">+55 111 222
+                                        333 44</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <hr>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>
