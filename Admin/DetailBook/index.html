@@ -1,0 +1,332 @@
+
+
+  
+  <main class="container my-4" >
+   <h1 class="mb-4">
+    Quản lý sách
+   </h1>
+   <div class="table-responsive">
+    <table class="table table-striped align-middle" id="books-table">
+     <thead class="table-primary">
+      <tr>
+       <th scope="col">
+        Id
+       </th>
+       <th scope="col">
+        Ảnh minh họa
+       </th>
+       <th scope="col">
+        Tên
+       </th>
+       <th scope="col">
+        Tác giả
+       </th>
+       <th scope="col">
+        Giá
+       </th>
+       <th scope="col" style="min-width: 130px;">
+        Chỉnh sửa
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <!-- Rows inserted by JS -->
+     </tbody>
+    </table>
+   </div>
+
+   <div class="modal fade" id="editBookModal" tabindex="-1" aria-labelledby="editBookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+       <h5 class="modal-title" id="editBookModalLabel">
+        Sửa sách
+       </h5>
+       <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button">
+       </button>
+      </div>
+      <div class="modal-body">
+       <form class="needs-validation" id="edit-book-form" novalidate="">
+        <input id="edit-book-id" type="hidden"/>
+        <div class="mb-3">
+         <label class="form-label" for="edit-book-title">
+          Tên sách
+         </label>
+         <input class="form-control" id="edit-book-title" minlength="2" required="" type="text"/>
+         <div class="invalid-feedback">
+          Nhập tối thiểu 2 ký tự.
+         </div>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="edit-book-author">
+          Tác giả
+         </label>
+         <input class="form-control" id="edit-book-author" minlength="2" required="" type="text"/>
+         <div class="invalid-feedback">
+          Nhập tối thiểu 2 ký tự.
+         </div>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="edit-book-description">
+          Giá
+         </label>
+         <input type="text" class="form-control" id="edit-book-description" minlength="4" required="" rows="4"></input>
+         <div class="invalid-feedback">
+          Nhập tối thiểu 1000đ.
+         </div>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="edit-book-cover">
+          Nhập đường dẫn ảnh.
+         </label>
+         <input class="form-control" id="edit-book-cover" placeholder="https://example.com/image.jpg" required="" type="text">
+        </div>
+        <div class="mb-3 text-center">
+         <img alt="Book cover preview" class="img-fluid border rounded" height="300" id="edit-cover-preview" style="max-height: 300px; object-fit: contain;" width="200"/>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+          Hủy bỏ
+         </button>
+         <button class="btn btn-success" type="submit">
+          <i class="fas fa-save">
+          </i>
+          Lưu
+         </button>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+       <h5 class="modal-title" id="deleteConfirmModalLabel">
+        Xác nhận xóa?
+       </h5>
+       <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button">
+       </button>
+      </div>
+      <div class="modal-body">
+       Bạn muốn xóa sách này chứ?
+      </div>
+      <div class="modal-footer">
+       <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+        Hủy
+       </button>
+       <button class="btn btn-danger" id="confirm-delete-btn" type="button">
+        <i class="fas fa-trash-alt">
+        </i>
+        Xóa
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script src="/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   (() => {
+      const books = [
+        {
+          id: 1,
+          title: "Hoàng tử bé",
+          author: "Thái Minh Trí",
+          description:
+            "55.000đ",
+          cover:
+            "/Img/sale1.webp",
+        },
+        {
+          id: 2,
+          title: "Lớp học mặt ngữ",
+          author: "Đặng Minh Tâm",
+          description:
+            "52.000đ",
+          cover:
+            "/Img/sale2.webp",
+        },
+        {
+          id: 3,
+          title: "Giupws trẻ làm chủ cảm xúc",
+          author: "Trương Văn Kiệt",
+          description:
+            "75.000đ",
+          cover: "/Img/sale3.webp",
+        },
+        {
+          id: 4,
+          title: "Con trai con gái khác nhau ạ",
+          author: "Thạch Hạo",
+          description:
+            "55.000đ",
+          cover:
+            "/Img/sale4.webp",
+        },
+        {
+          id: 5,
+          title: "Bé học nói",
+          author: "Đường Tam",
+          description:
+            "52.000đ",
+          cover: "/Img/sale5.webp",
+        },
+      ];
+
+      const tbody = document.querySelector("#books-table tbody");
+      const editBookModal = new bootstrap.Modal(document.getElementById("editBookModal"));
+      const deleteConfirmModal = new bootstrap.Modal(document.getElementById("deleteConfirmModal"));
+
+      const editBookForm = document.getElementById("edit-book-form");
+      const editBookIdInput = document.getElementById("edit-book-id");
+      const editBookTitleInput = document.getElementById("edit-book-title");
+      const editBookAuthorInput = document.getElementById("edit-book-author");
+      const editBookDescriptionInput = document.getElementById("edit-book-description");
+      const editBookCoverInput = document.getElementById("edit-book-cover");
+      const editCoverPreview = document.getElementById("edit-cover-preview");
+
+      const confirmDeleteBtn = document.getElementById("confirm-delete-btn");
+
+      let bookToDeleteId = null;
+
+      function renderTable() {
+        tbody.innerHTML = "";
+        books.forEach((book, index) => {
+          const tr = document.createElement("tr");
+
+          // Index
+          const tdIndex = document.createElement("th");
+          tdIndex.scope = "row";
+          tdIndex.textContent = index + 1;
+          tr.appendChild(tdIndex);
+
+          // Cover
+          const tdCover = document.createElement("td");
+          const img = document.createElement("img");
+          img.src = book.cover;
+          img.alt = `Cover image of the book titled ${book.title} by ${book.author}`;
+          img.width = 80;
+          img.height = 120;
+          img.className = "img-thumbnail";
+          tdCover.appendChild(img);
+          tr.appendChild(tdCover);
+
+          // Title
+          const tdTitle = document.createElement("td");
+          tdTitle.textContent = book.title;
+          tr.appendChild(tdTitle);
+
+          // Author
+          const tdAuthor = document.createElement("td");
+          tdAuthor.textContent = book.author;
+          tr.appendChild(tdAuthor);
+
+          // Description
+          const tdDescription = document.createElement("td");
+          tdDescription.textContent = book.description;
+          tdDescription.style.maxWidth = "300px";
+          tdDescription.style.overflow = "hidden";
+          tdDescription.style.textOverflow = "ellipsis";
+          tdDescription.style.whiteSpace = "nowrap";
+          tr.appendChild(tdDescription);
+
+          // Actions
+          const tdActions = document.createElement("td");
+          tdActions.className = "text-nowrap";
+
+          const editBtn = document.createElement("button");
+          editBtn.className = "btn btn-sm btn-primary me-2";
+          editBtn.type = "button";
+          editBtn.title = "Edit Book";
+          editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+          editBtn.addEventListener("click", () => openEditModal(book.id));
+          tdActions.appendChild(editBtn);
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "btn btn-sm btn-danger";
+          deleteBtn.type = "button";
+          deleteBtn.title = "Delete Book";
+          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          deleteBtn.addEventListener("click", () => openDeleteModal(book.id));
+          tdActions.appendChild(deleteBtn);
+
+          tr.appendChild(tdActions);
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      function openEditModal(bookId) {
+        const book = books.find((b) => b.id === bookId);
+        if (!book) return;
+
+        editBookIdInput.value = book.id;
+        editBookTitleInput.value = book.title;
+        editBookAuthorInput.value = book.author;
+        editBookDescriptionInput.value = book.description;
+        editBookCoverInput.value = book.cover;
+        editCoverPreview.src = book.cover;
+        editCoverPreview.alt = `Cover image of the book titled ${book.title} by ${book.author}`;
+
+        editBookForm.classList.remove("was-validated");
+        editBookModal.show();
+      }
+
+      editBookCoverInput.addEventListener("input", () => {
+        const url = editBookCoverInput.value.trim();
+        if (url) {
+          editCoverPreview.src = url;
+          editCoverPreview.alt = `Cover image preview from URL: ${url}`;
+        } else {
+          editCoverPreview.alt = "Book cover preview";
+        }
+      });
+
+      editBookForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!editBookForm.checkValidity()) {
+          editBookForm.classList.add("was-validated");
+          return;
+        }
+
+        const id = parseInt(editBookIdInput.value, 10);
+        const bookIndex = books.findIndex((b) => b.id === id);
+        if (bookIndex === -1) {
+          alert("Book not found.");
+          return;
+        }
+
+        books[bookIndex].title = editBookTitleInput.value.trim();
+        books[bookIndex].author = editBookAuthorInput.value.trim();
+        books[bookIndex].description = editBookDescriptionInput.value.trim();
+        books[bookIndex].cover = editBookCoverInput.value.trim();
+
+        editBookModal.hide();
+        renderTable();
+      });
+
+      function openDeleteModal(bookId) {
+        bookToDeleteId = bookId;
+        deleteConfirmModal.show();
+      }
+
+      confirmDeleteBtn.addEventListener("click", () => {
+        if (bookToDeleteId === null) return;
+        const index = books.findIndex((b) => b.id === bookToDeleteId);
+        if (index !== -1) {
+          books.splice(index, 1);
+          renderTable();
+        }
+        bookToDeleteId = null;
+        deleteConfirmModal.hide();
+      });
+
+      renderTable();
+    })();
+  </script>

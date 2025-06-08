@@ -1,0 +1,380 @@
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap.bundle.min.js">
+  <style>
+    /* Custom scrollbar for users table */
+    #users-table tbody {
+      max-height: 450px;
+      overflow-y: auto;
+      display: block;
+    }
+    #users-table thead,
+    #users-table tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    td{
+        overflow: hidden;
+    }
+    #users-table thead {
+      width: calc(100% - 1em);
+    }
+    /* Fix for modal input width */
+    .modal-lg .form-control {
+      width: 100%;
+    }
+  </style>
+
+
+  <main class="container my-5 bg-light">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="text-primary fw-bold">Quản lý tài khoản</h1>
+      <button class="btn btn-success" id="btn-add-user" type="button" data-bs-toggle="modal" data-bs-target="#userModal">
+        <i class="fas fa-user-plus"></i> Thêm người dùng
+      </button>
+    </div>
+
+    <div class="table-responsive border rounded shadow-sm bg-white">
+      <table class="table table-hover align-middle mb-0" id="users-table" aria-label="User Accounts">
+        <thead class="table-light sticky-top">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Email</th>
+            <th scope="col">Vai trò</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Quản lý</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- User rows inserted by JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- User Add/Edit Modal -->
+  <div
+    class="modal fade"
+    id="userModal"
+    tabindex="-1"
+    aria-labelledby="userModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="userModalLabel">Thêm người dùng</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="user-form" class="needs-validation" novalidate>
+          <div class="modal-body">
+            <input type="hidden" id="user-id" />
+            <div class="mb-3">
+              <label for="user-name" class="form-label">Họ và tên</label>
+              <input
+                type="text"
+                class="form-control"
+                id="user-name"
+                placeholder="Enter full name"
+                minlength="2"
+                required
+              />
+              <div class="invalid-feedback">Tối thiểu 2 ký tự</div>
+            </div>
+            <div class="mb-3">
+              <label for="user-email" class="form-label">Email </label>
+              <input
+                type="email"
+                class="form-control"
+                id="user-email"
+                placeholder="name@example.com"
+                required
+              />
+              <div class="invalid-feedback">Nhập đúng định dạng email</div>
+            </div>
+            <div class="mb-3">
+              <label for="user-role" class="form-label">Vai trò</label>
+              <select class="form-select" id="user-role" required>
+                <option value="" selected disabled>Chọn vai trò</option>
+                <option value="Quản trị">Quản trị</option>
+                <option value="Người dùng">Người dùng</option>
+              </select>
+              <div class="invalid-feedback">Chọn vai trò.</div>
+            </div>
+            <div class="mb-3">
+              <label for="user-status" class="form-label">Trạng thái</label>
+              <select class="form-select" id="user-status" required>
+                <option value="" selected disabled>Chọn trạng thái</option>
+                <option value="active">Hoạt động</option>
+                <option value="inactive">Ngưng hoạt động</option>
+                <option value="banned">Bị cấm</option>
+              </select>
+              <div class="invalid-feedback">Chọn trạng thái tài khoản.</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i> Lưu
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div
+    class="modal fade"
+    id="deleteUserModal"
+    tabindex="-1"
+    aria-labelledby="deleteUserModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="deleteUserModalLabel">Xác nhận xóa</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Bạn có chắc muốn xóa tài khoản này không?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Hủy
+          </button>
+          <button type="button" class="btn btn-danger" id="confirm-delete-user-btn">
+            <i class="fas fa-trash-alt"></i> Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/bootstrap.bundle.min.js"></script>
+  <script>
+    (() => {
+      // Sample user data
+      let users = [
+        {
+          id: 1,
+          name: "Vương Hạo",
+          email: "alice.johnson@example.com",
+          role: "Quản trị viên",
+          status: "active",
+        },
+        {
+          id: 2,
+          name: "Đường Tam",
+          email: "bob.smith@example.com",
+          role: "người dùng",
+          status: "active",
+        },
+        {
+          id: 3,
+          name: "Tiêu Viêm",
+          email: "carol.white@example.com",
+          role: "người dùng",
+          status: "inactive",
+        },
+        {
+          id: 4,
+          name: "Thạch Hạo",
+          email: "david.brown@example.com",
+          role: "Quản trị viên",
+          status: "active",
+        },
+        {
+          id: 5,
+          name: "Hàn Lập",
+          email: "eve.davis@example.com",
+          role: "người dùng",
+          status: "active",
+        }
+      ];
+
+      const tbody = document.querySelector("#users-table tbody");
+      const userModalEl = document.getElementById("userModal");
+      const userModal = new bootstrap.Modal(userModalEl);
+      const deleteUserModalEl = document.getElementById("deleteUserModal");
+      const deleteUserModal = new bootstrap.Modal(deleteUserModalEl);
+
+      const userForm = document.getElementById("user-form");
+      const userIdInput = document.getElementById("user-id");
+      const userNameInput = document.getElementById("user-name");
+      const userEmailInput = document.getElementById("user-email");
+      const userRoleSelect = document.getElementById("user-role");
+      const userStatusSelect = document.getElementById("user-status");
+      const userModalLabel = document.getElementById("userModalLabel");
+
+      const btnAddUser = document.getElementById("btn-add-user");
+      const confirmDeleteUserBtn = document.getElementById("confirm-delete-user-btn");
+
+      let userToDeleteId = null;
+
+      function renderUsersTable() {
+        tbody.innerHTML = "";
+        users.forEach((user, index) => {
+          const tr = document.createElement("tr");
+
+          // Index
+          const tdIndex = document.createElement("th");
+          tdIndex.scope = "row";
+          tdIndex.textContent = index + 1;
+          tr.appendChild(tdIndex);
+
+          // Name
+          const tdName = document.createElement("td");
+          tdName.textContent = user.name;
+          tr.appendChild(tdName);
+
+          // Email
+          const tdEmail = document.createElement("td");
+          tdEmail.textContent = user.email;
+          tr.appendChild(tdEmail);
+
+          // Role
+          const tdRole = document.createElement("td");
+          tdRole.textContent = capitalize(user.role);
+          tr.appendChild(tdRole);
+
+          // Status
+          const tdStatus = document.createElement("td");
+          tdStatus.textContent = capitalize(user.status);
+          tdStatus.className = user.status === "active" ? "text-success fw-semibold" :
+            user.status === "inactive" ? "text-secondary" : "text-danger fw-semibold";
+          tr.appendChild(tdStatus);
+
+          // Actions
+          const tdActions = document.createElement("td");
+          tdActions.className = "text-nowrap";
+
+          const editBtn = document.createElement("button");
+          editBtn.className = "btn btn-sm btn-primary me-2";
+          editBtn.type = "button";
+          editBtn.title = "Sửa";
+          editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+          editBtn.addEventListener("click", () => openEditUserModal(user.id));
+          tdActions.appendChild(editBtn);
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "btn btn-sm btn-danger";
+          deleteBtn.type = "button";
+          deleteBtn.title = "Xóa";
+          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          deleteBtn.addEventListener("click", () => openDeleteUserModal(user.id));
+          tdActions.appendChild(deleteBtn);
+
+          tr.appendChild(tdActions);
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      function capitalize(str) {
+        if (!str) return "";
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
+
+      btnAddUser.addEventListener("click", () => {
+        userModalLabel.textContent = "Thêm người dùng";
+        userForm.reset();
+        userForm.classList.remove("was-validated");
+        userIdInput.value = "";
+        userRoleSelect.value = "";
+        userStatusSelect.value = "";
+      });
+
+      function openEditUserModal(userId) {
+        const user = users.find((u) => u.id === userId);
+        if (!user) return;
+        userModalLabel.textContent = "Sửa tài khoản";
+        userForm.classList.remove("was-validated");
+        userIdInput.value = user.id;
+        userNameInput.value = user.name;
+        userEmailInput.value = user.email;
+        userRoleSelect.value = user.role;
+        userStatusSelect.value = user.status;
+        userModal.show();
+      }
+
+      function openDeleteUserModal(userId) {
+        userToDeleteId = userId;
+        deleteUserModal.show();
+      }
+
+      confirmDeleteUserBtn.addEventListener("click", () => {
+        if (userToDeleteId === null) return;
+        users = users.filter((u) => u.id !== userToDeleteId);
+        renderUsersTable();
+        userToDeleteId = null;
+        deleteUserModal.hide();
+      });
+
+      userForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!userForm.checkValidity()) {
+          userForm.classList.add("was-validated");
+          return;
+        }
+
+        const id = userIdInput.value ? parseInt(userIdInput.value, 10) : null;
+        const name = userNameInput.value.trim();
+        const email = userEmailInput.value.trim();
+        const role = userRoleSelect.value;
+        const status = userStatusSelect.value;
+
+        if (id) {
+          // Edit existing user
+          const userIndex = users.findIndex((u) => u.id === id);
+          if (userIndex !== -1) {
+            users[userIndex].name = name;
+            users[userIndex].email = email;
+            users[userIndex].role = role;
+            users[userIndex].status = status;
+          }
+        } else {
+          // Add new user
+          const newId = users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1;
+          users.push({
+            id: newId,
+            name,
+            email,
+            role,
+            status,
+          });
+        }
+
+        renderUsersTable();
+        userModal.hide();
+      });
+
+      renderUsersTable();
+    })();
+  </script>
+</body>
+</html>

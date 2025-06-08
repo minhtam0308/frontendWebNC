@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../../bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap.bundle.min.js">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="main.css" rel="stylesheet">
+    <link href="../AddCategory/category.css" rel="stylesheet">
+    <script src="/jquery.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../DetailBook/detail.css">
+</head>
+<script>
+    $(()=>{
+        if($(location).attr('href') === 'http://127.0.0.1:5500/Admin/Adminheader/Admin.html#category'){
+            $('.sectioncontain').load('../AddCategory/index.html');
+            $('.active').removeClass('active');
+            $('.category').addClass('active');
+        }else if($(location).attr('href') === 'http://127.0.0.1:5500/Admin/Adminheader/Admin.html#addbook'){
+            $('.sectioncontain').load('../AddBook/index.html');
+            $('.active').removeClass('active');
+            $('.addbook').addClass('active');
+        }else if($(location).attr('href') === 'http://127.0.0.1:5500/Admin/Adminheader/Admin.html#detail'){
+            $('.sectioncontain').load('../DetailBook/index.html');
+            $('.active').removeClass('active');
+            $('.detailBook').addClass('active');
+        }else if($(location).attr('href') === 'http://127.0.0.1:5500/Admin/Adminheader/Admin.html#revenue'){
+            $('.sectioncontain').load('../Revenue/index.html');
+            $('.active').removeClass('active');
+            $('.revenue').addClass('active');
+        }
+        else if($(location).attr('href') === 'http://127.0.0.1:5500/Admin/Adminheader/Admin.html#user'){
+            $('.active').removeClass('active');
+            $('.user').addClass('active');
+            $('.sectioncontain').load('../User/index.html');
+        }else{
+            $('.sectioncontain').load('../HomePage_Admin/index.html');
+            $('.active').removeClass('active');
+            $('.home').addClass('active');
+        }
+
+        $('.home').click(()=>{
+            $('.sectioncontain').load('../HomePage_Admin/index.html');
+            $('.active').removeClass('active');
+            $('.home').addClass('active');
+        });
+        $('.category').click(()=>{
+            $('.sectioncontain').load('../AddCategory/index.html');
+            $('.active').removeClass('active');
+            $('.category').addClass('active');
+        })
+        $('.addbook').click(()=>{
+            $('.sectioncontain').load('../AddBook/index.html');
+            $('.active').removeClass('active');
+            $('.addbook').addClass('active');
+        })
+        $('.detailBook').click(()=>{
+            $('.sectioncontain').load('../DetailBook/index.html');
+            $('.active').removeClass('active');
+            $('.detailBook').addClass('active');
+        })
+        $('.revenue').click(()=>{
+            $('.sectioncontain').load('../Revenue/index.html');
+            $('.active').removeClass('active');
+            $('.revenue').addClass('active');
+        })
+        $('.user').click(()=>{
+            $('.sectioncontain').load('../User/index.html');
+            $('.active').removeClass('active');
+            $('.user').addClass('active');
+        })
+    }
+    )
+</script>
+<body>
+    <header id="header" class="header d-flex align-items-center dark-background">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="../../HomePage/index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">BioLaitBookk</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#home" class="home active">Trang chủ</a></li>
+                    <li><a href="#category" class="category">thêm danh mục</a></li>
+                    <li><a href="#addbook" class="addbook">Thêm sách</a></li>
+                    <li><a href="#detail" class="detailBook">Chi tiết các loại sách</a></li>
+                    <li><a href="#revenue" class="revenue">Doanh thu</a></li>
+                    <li><a href="#user" class="user">Tài khoản</a></li>
+                    <li><a href="/RegisterAndLogin/panda.html"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff; margin: 9px;"></i></a></li>
+
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    <section id="hero" class="hero section dark-background sectioncontain">
+
+    </section>
+</body>
+</html>

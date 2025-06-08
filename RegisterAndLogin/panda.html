@@ -17,14 +17,14 @@
 
         $(".loginformBtn").click(() => {
             if ($('#usernamelogin').val() === "123" && $('#passwordlogin').val() === "123") {
-                $('#formlogin').attr('action', '../Admin/HomePage_Admin')
+                $('#formlogin').attr('action', '../Admin/Adminheader/Admin.html');
             }
             else if ($('#usernamelogin').val() === "1234") {
-                $('#formlogin').attr('action', '#sai')
+                $('#formlogin').attr('action', '#sai');
                 $('.loginfail').fadeIn("slow");
 
             } else {
-                $('#formlogin').attr('action', '../HomePage')
+                $('#formlogin').attr('action', '../HomePage');
             }
 
         })

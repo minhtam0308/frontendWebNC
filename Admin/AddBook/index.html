@@ -1,0 +1,78 @@
+
+
+
+        <div class="container">
+            <div class="row d-flex">
+
+                <div class="bg-img col-3 bg-gradient">
+                    <img src="" alt="khon co" class="d-none" id="img-preview2">
+                    <label for="addimg2" class="label-img">+ Ảnh minh họa</label>
+                    <input type="file" id="addimg2" class="previewimg" hidden>
+                </div>
+
+                <div class="col-5 row d-flex justify-content-between">
+                    <label class="col-4">Tên sách: </label>
+                    <input type="text" id="cate2" style="height: 30px;" class="col-7 mb-3">
+                    <label class="col-4">Tác giả: </label>
+                    <input type="text" id="tacgia" style="height: 30px;" class="col-7 mb-3">
+                    <label class="col-4">Giá sách: </label>
+                    <input type="text" id="giasach" style="height: 30px;" class="col-7 mb-3">
+                    <label class="col-4">Thuộc danh mục: </label>
+                    <input type="text" id="danhmuc" style="height: 30px;" class="col-7 mb-3">
+                    <label class="col-4">Sô lượng: </label>
+                    <input type="text" id="soluong" style="height: 30px;" class="col-7 mb-3">
+                    <label class="col-4">Mô tả:</label>
+                    <textarea class="col-7" rows="5" id="comment2" name="text"></textarea>
+                </div>
+
+
+            </div>
+
+        </div>
+        <a style="cursor: pointer;" class="btn btn-info position-relative btn-addcategory" id="submit">Thêm</a>
+
+<script>
+
+var imgInp2 = document.getElementById('addimg2');
+var imgp2 = document.getElementById('img-preview2');
+var cate2 = document.getElementById('cate2');
+var descripe = document.getElementById('comment2');
+var tacgia = document.getElementById('tacgia');
+var giasach = document.getElementById('giasach');
+var danhmuc = document.getElementById('danhmuc');
+var soluong = document.getElementById('soluong');
+
+    
+    imgp2.src = "";
+    imgp2.classList.add("d-none");
+    cate2.value = "";
+    descripe.value = "";
+    tacgia.value = "";
+    giasach.value = "";
+    danhmuc.value = "";
+    soluong.value = "";
+
+  imgInp2.onchange = event => {
+    imgp2.classList.remove("d-none");
+    var [file] = imgInp2.files;
+    if (file) {
+      imgp2.src = URL.createObjectURL(event.target.files[0]);
+    }
+  }
+  var btnsubmit = document.getElementById('submit');
+  btnsubmit.onclick = ()=>{
+    alert("Thêm sách thành công");
+    imgInp2.value = "";
+    imgp2.src = '';
+    imgp2.classList.add("d-none");
+    cate2.value = "";
+    descripe.value = "";
+    tacgia.value = "";
+    giasach.value = "";
+    danhmuc.value = "";
+    soluong.value = "";
+  }
+    
+
+</script>
+

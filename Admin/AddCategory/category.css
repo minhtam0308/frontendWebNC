@@ -1,13 +1,25 @@
 a {
     text-decoration: none;
 }
-
+.btn-addcategory {
+    top: 50%;
+    right: 300px;
+    z-index: 3;
+}
 .bg-img {
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
+    border: 1px white solid;
+    position: relative;
+}
+.bg-img img{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .label-img {
@@ -15,4 +27,5 @@ a {
     padding: 5px;
     border-radius: 0.5rem;
     cursor: pointer;
+    z-index: 5;
 }

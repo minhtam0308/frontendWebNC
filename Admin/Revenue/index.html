@@ -1,0 +1,202 @@
+
+  <style>
+    /* Custom scrollbar for revenue table */
+    #revenue-table tbody {
+      max-height: 400px;
+      overflow-y: auto;
+      display: block;
+    }
+    #revenue-table thead,
+    #revenue-table tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    #revenue-table thead {
+      width: calc(100% - 1em);
+    }
+  </style>
+
+  <main class="container position-relative" >
+    <h1 class="text-primary fw-bold">Bảng Doanh Thu</h1>
+
+    <section class="row g-4" style="padding: 0;">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3">
+          <div class="card-body text-center">
+            <h6 class="text-muted">Tổng doanh thu</h6>
+            <p class="display-6 fw-bold text-success" id="total-revenue">0.00đ</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3">
+          <div class="card-body text-center">
+            <h6 class="text-muted">Số lượng bán được</h6>
+            <p class="display-6 fw-bold text-primary" id="total-books-sold">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3">
+          <div class="card-body text-center">
+            <h6 class="text-muted">Lợi nhuận trung bình mỗi quyển</h6>
+            <p class="display-6 fw-bold text-warning" id="avg-revenue-per-book">0.00đ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mb-3 fw-semibold text-primary">Sách đã bán</h2>
+      <div class="table-responsive border rounded shadow-sm bg-white">
+        <table
+          class="table table-hover align-middle mb-0"
+          id="revenue-table"
+          aria-label="Revenue by Book"
+        >
+          <thead class="table-light sticky-top">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ảnh bìa</th>
+              <th scope="col">Tên</th>
+              <th scope="col">Tác giả</th>
+              <th scope="col">Số lượng bán</th>
+              <th scope="col">Doanh thu</th>
+              <th scope="col">Đơn giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows inserted by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/bootstrap.bundle.min.js"></script>
+  <script>
+    (() => {
+      // Sample book data with sales info
+      const books = [
+        {
+          id: 1,
+          title: "Hoàng tử bé",
+          author: "Thái Minh Trí",
+          cover: "/Img/sale1.webp",
+          price: 55000,
+          unitsSold: 120,
+        },
+        {
+          id: 2,
+          title: "Lớp học mặt ngữ",
+          author: "Đặng Minh Tâm",
+          cover: "/Img/sale2.webp",
+          price: 52000,
+          unitsSold: 200,
+        },
+        {
+          id: 3,
+          title: "Giupws trẻ làm chủ cảm xúc",
+          author: "Trương Văn Kiệt",
+          cover: "/Img/sale3.webp",
+          price: 75000,
+          unitsSold: 150,
+        },
+        {
+          id: 4,
+          title: "Con trai con gái khác nhau ạ",
+          author: "Thạch Hạo",
+          cover: "/Img/sale4.webp",
+          price: 55000,
+          unitsSold: 90,
+        },
+        {
+          id: 5,
+          title: "Bé học nói",
+          author: "Đường Tam",
+          cover: "/Img/sale5.webp",
+          price: 52000,
+          unitsSold: 60,
+        },
+      ];
+
+      const tbody = document.querySelector("#revenue-table tbody");
+      const totalRevenueEl = document.getElementById("total-revenue");
+      const totalBooksSoldEl = document.getElementById("total-books-sold");
+      const avgRevenuePerBookEl = document.getElementById("avg-revenue-per-book");
+
+      function formatCurrency(value) {
+        return `${(value/1000).toFixed(3)}đ`;
+      }
+
+      function renderRevenueTable() {
+        tbody.innerHTML = "";
+        let totalRevenue = 0;
+        let totalUnitsSold = 0;
+
+        books.forEach((book, index) => {
+          const revenue = book.price * book.unitsSold;
+          totalRevenue += revenue;
+          totalUnitsSold += book.unitsSold;
+
+          const tr = document.createElement("tr");
+
+          // Index
+          const tdIndex = document.createElement("th");
+          tdIndex.scope = "row";
+          tdIndex.textContent = index + 1;
+          tr.appendChild(tdIndex);
+
+          // Cover
+          const tdCover = document.createElement("td");
+          const img = document.createElement("img");
+          img.src = book.cover;
+          img.alt = `Cover image of the book titled ${book.title} by ${book.author}`;
+          img.width = 80;
+          img.height = 120;
+          img.className = "img-thumbnail";
+          tdCover.appendChild(img);
+          tr.appendChild(tdCover);
+
+          // Title
+          const tdTitle = document.createElement("td");
+          tdTitle.textContent = book.title;
+          tr.appendChild(tdTitle);
+
+          // Author
+          const tdAuthor = document.createElement("td");
+          tdAuthor.textContent = book.author;
+          tr.appendChild(tdAuthor);
+
+          // Units Sold
+          const tdUnitsSold = document.createElement("td");
+          tdUnitsSold.textContent = book.unitsSold.toLocaleString();
+          tdUnitsSold.className = "fw-semibold text-center";
+          tr.appendChild(tdUnitsSold);
+
+          // Revenue
+          const tdRevenue = document.createElement("td");
+          tdRevenue.textContent = formatCurrency(revenue);
+          tdRevenue.className = "fw-semibold text-success text-center";
+          tr.appendChild(tdRevenue);
+
+          // Price
+          const tdPrice = document.createElement("td");
+          tdPrice.textContent = formatCurrency(book.price);
+          tdPrice.className = "text-center";
+          tr.appendChild(tdPrice);
+
+          tbody.appendChild(tr);
+        });
+
+        totalRevenueEl.textContent = formatCurrency(totalRevenue);
+        totalBooksSoldEl.textContent = totalUnitsSold.toLocaleString();
+        avgRevenuePerBookEl.textContent =
+          totalUnitsSold === 0 ? "0.00đ" : formatCurrency(totalRevenue / totalUnitsSold);
+      }
+
+      renderRevenueTable();
+    })();
+  </script>
+

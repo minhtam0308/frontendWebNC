@@ -5,8 +5,16 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
-
+.sectioncontain{
+  height: auto;
+  min-height: 87vh !important;
+}
+a{
+  text-decoration: none !important;
+}
+.header{
+  max-height: 13vh;
+}
 /*--------------------------------------------------------------
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
@@ -17,7 +25,9 @@
   --heading-font: "Poppins", sans-serif;
   --nav-font: "Poppins", sans-serif;
 }
-
+.navmenu a{
+  cursor: pointer;
+}
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
   --background-color: #ffffff;
@@ -89,7 +99,9 @@ a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
 }
-
+.sectioncontain{
+  overflow: auto !important;
+}
 h1,
 h2,
 h3,
@@ -160,10 +172,10 @@ h6 {
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #214a1f;
   padding: 20px 0;
   transition: all 0.5s;
-  z-index: 997;
+
 }
 
 .header .logo {
@@ -801,7 +813,7 @@ section,
   width: 100%;
   min-height: 70vh;
   position: relative;
-  padding: 120px 0 120px 0;
+  padding: 20px 0 20px 0;
   display: flex;
   align-items: center;
 }
