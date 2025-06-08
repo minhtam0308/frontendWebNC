@@ -87,3 +87,24 @@ $(document).ready(function ($) {
 $('.arrow').click(function () {
     $("html").animate({ scrollTop: $('html').prop("scrollHeight") }, 1200);
 });
+
+$(() => {
+    // Load header xong rồi mới xử lý active
+    $("#header").load("header.html", function () {
+        const url = window.location.href;
+        console.log("URL hiện tại: ", url);
+
+        if (url.includes("index.html") || url.endsWith("/HomePage/")) {
+            $('.home-page').addClass('active');
+        } else if (url.includes("catagory.html")) {
+            $('.cata-gory').addClass('active');
+        } else if (url.includes("contactt.html")) {
+            $('.contact').addClass('active');
+        }else if (url.includes("blog.html")) {
+            $('.blogg').addClass('active');
+        }
+    });
+
+    // Footer có thể load không cần xử lý gì thêm
+    $("#footer").load("footer.html");
+});
