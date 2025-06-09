@@ -23,6 +23,18 @@
     .modal-lg .form-control {
       width: 100%;
     }
+    .modal-backdrop {
+    --bs-backdrop-zindex: 1050;
+    --bs-backdrop-bg: #000;
+    --bs-backdrop-opacity: 0.5;
+    position: relative !important;
+    top: 0;
+    left: 0;
+    z-index: var(--bs-backdrop-zindex);
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bs-backdrop-bg);
+}
   </style>
 
 
@@ -99,10 +111,10 @@
               <div class="invalid-feedback">Nhập đúng định dạng email</div>
             </div>
             <div class="mb-3">
-              <label for="user-role" class="form-label">Vai trò</label>
-              <select class="form-select" id="user-role" required>
+              <label for="user-role1" class="form-label">Vai trò</label>
+              <select class="form-select" id="user-role1" required>
                 <option value="" selected disabled>Chọn vai trò</option>
-                <option value="Quản trị">Quản trị</option>
+                <option value="Quản trị viên">Quản trị</option>
                 <option value="Người dùng">Người dùng</option>
               </select>
               <div class="invalid-feedback">Chọn vai trò.</div>
@@ -111,9 +123,9 @@
               <label for="user-status" class="form-label">Trạng thái</label>
               <select class="form-select" id="user-status" required>
                 <option value="" selected disabled>Chọn trạng thái</option>
-                <option value="active">Hoạt động</option>
-                <option value="inactive">Ngưng hoạt động</option>
-                <option value="banned">Bị cấm</option>
+                <option value="Hoạt động">Hoạt động</option>
+                <option value="Ngưng hoạt động">Ngưng hoạt động</option>
+                <option value="Bị cấm">Bị cấm</option>
               </select>
               <div class="invalid-feedback">Chọn trạng thái tài khoản.</div>
             </div>
@@ -183,35 +195,35 @@
           name: "Vương Hạo",
           email: "alice.johnson@example.com",
           role: "Quản trị viên",
-          status: "active",
+          status: "Hoạt động",
         },
         {
           id: 2,
           name: "Đường Tam",
           email: "bob.smith@example.com",
-          role: "người dùng",
-          status: "active",
+          role: "Người dùng",
+          status: "Hoạt động",
         },
         {
           id: 3,
           name: "Tiêu Viêm",
           email: "carol.white@example.com",
-          role: "người dùng",
-          status: "inactive",
+          role: "Người dùng",
+          status: "Ngưng hoạt động",
         },
         {
           id: 4,
           name: "Thạch Hạo",
           email: "david.brown@example.com",
           role: "Quản trị viên",
-          status: "active",
+          status: "Hoạt động",
         },
         {
           id: 5,
           name: "Hàn Lập",
           email: "eve.davis@example.com",
-          role: "người dùng",
-          status: "active",
+          role: "Người dùng",
+          status: "Hoạt động",
         }
       ];
 
@@ -225,7 +237,7 @@
       const userIdInput = document.getElementById("user-id");
       const userNameInput = document.getElementById("user-name");
       const userEmailInput = document.getElementById("user-email");
-      const userRoleSelect = document.getElementById("user-role");
+      const userRoleSelect = document.getElementById("user-role1");
       const userStatusSelect = document.getElementById("user-status");
       const userModalLabel = document.getElementById("userModalLabel");
 
@@ -263,8 +275,8 @@
           // Status
           const tdStatus = document.createElement("td");
           tdStatus.textContent = capitalize(user.status);
-          tdStatus.className = user.status === "active" ? "text-success fw-semibold" :
-            user.status === "inactive" ? "text-secondary" : "text-danger fw-semibold";
+          tdStatus.className = user.status === "Hoạt động" ? "text-success fw-semibold" :
+            user.status === "Ngưng hoạt động" ? "text-secondary" : "text-danger fw-semibold";
           tr.appendChild(tdStatus);
 
           // Actions
