@@ -5,66 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh mục sách</title>
-    <link rel="stylesheet" href="../bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="/jquery.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min.css">
     <link rel="stylesheet" href="footer.css">
     <link href="card.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
     <script src="script.js"></script>
 </head>
-<script>
-    
-    // luôn load mới css
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-        const href = link.getAttribute('href');
-
-        // Bỏ qua link CDN hoặc URL đã có "?"
-        if (!href || href.includes('http') || href.includes('?')) return;
-
-        // Gắn timestamp để phá cache
-        const newHref = `${href}?v=${Date.now()}`;
-        link.setAttribute('href', newHref);
-    });
-</script>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="padding-bottom: 100px;">
         <div class="wrap">
-            <div class="arrow animated bounce"></div>
             <div id="header"></div>
-            <section id="hero" class="hero section" style="width: 100%; height: 30%; min-height: 30vh;">
-                <img src="/Img/banner-image-bg-1.jpg" alt="" class="hero-bg">
-
-                <div class="container sticky-part">
-                    <div class="row gy-4 justify-content-between">
-                    </div>
-                </div>
-
-                <svg class="hero-waves" id="wave-anim" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-                    <defs>
-                        <path id="wave-path"
-                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-                        </path>
-                    </defs>
-                    <g class="wave1">
-                        <use xlink:href="#wave-path" x="50" y="3"></use>
-                    </g>
-                    <g class="wave2">
-                        <use xlink:href="#wave-path" x="50" y="0"></use>
-                    </g>
-                    <g class="wave3">
-                        <use xlink:href="#wave-path" x="50" y="9"></use>
-                    </g>
-                </svg>
-
-            </section>
-            <!-- <div class="cata m-auto cata1 text-center mt-5 p-3 fader">
-               
-            </div> -->
-            <div class="container catagory mt-5">
+            <div class="container catagory mt-5 pb-5">
                 <h2 class="text-center mb-4 text-black">Danh mục sách</h2>
                 <div class="row g-3 m-3">
                     <div class="col-12 col-md-4 col-lg-2"><button onclick="window.location.href='cata-science.html'" class="btn-cata btn btn-outline-primary">Khoa

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Danh mục sách</title>
+        <script src="/jquery.js"></script>
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <link rel="stylesheet" href="/HomePage/footer.css">
+        <link href="card.css" rel="stylesheet">
+        <link href="/HomePage/main.css" rel="stylesheet">
+        <script src="/HomePage/script.js"></script>
+</head>
+<style>
+        .authorForm {
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 4px 12px rgba(26, 204, 141, 0.3); 
+                /* background-color: rgba(241, 241, 241, 0.647); */
+        }
+        #authojpg{
+                box-shadow: 0 4px 12px rgba(26, 204, 141, 0.3); 
+        }
+
+</style>
+
+<body>
+        <div class="wrapper" style="padding-bottom: 200px;">
+                <div class="wrap">
+                        <div id="header"></div>
+                        <main class="container-xl rounded text-black">
+                                <h1 class="text-success fw-semibold mt-5">Trở Thành Tác Giả</h1>
+                                <p class="mb-4">Hãy điền thông tin dưới đây để đăng ký trở thành tác giả trên
+                                        BioLaitBook. Chúng tôi sẽ liên
+                                        hệ
+                                        với bạn sau khi nhận được đơn đăng ký.</p>
+                                <div class="row">
+                                        <div class="col-8">
+                                                <form id="authorForm" novalidate class="authorForm p-3">
+                                                        <div class="mb-3">
+                                                                <label for="fullName" class="form-label">Họ và Tên <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" id="fullName"
+                                                                        placeholder="Nhập họ và tên" required />
+                                                                <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="email" class="form-label">Email <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="email" class="form-control" id="email"
+                                                                        placeholder="Nhập email" required />
+                                                                <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="phone" class="form-label">Số điện thoại</label>
+                                                                <input type="tel" class="form-control" id="phone"
+                                                                        placeholder="Nhập số điện thoại" />
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="bio" class="form-label">Tiểu sử ngắn gọn</label>
+                                                                <textarea class="form-control" id="bio" rows="4"
+                                                                        placeholder="Viết vài dòng giới thiệu về bạn"></textarea>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="sampleWork" class="form-label">Tải lên bản mẫu tác phẩm (PDF
+                                                                        hoặc DOC)</label>
+                                                                <input class="form-control" type="file" id="sampleWork"
+                                                                        accept=".pdf,.doc,.docx" />
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="socialLinks" class="form-label">Liên kết mạng xã hội hoặc
+                                                                        website cá nhân</label>
+                                                                <input type="url" class="form-control" id="socialLinks"
+                                                                        placeholder="https://example.com" />
+                                                        </div>
+                
+                                                        <button type="submit" class="btn btn-primary">Gửi Đăng Ký</button>
+                                                </form>
+                                        </div>
+                                        <div class="col-4">
+                                                <img id="authojpg" src="/Img/author.jpg" class="mt-2 rounded-3" alt="">
+                                        </div>
+                                </div>
+                        </main>
+                </div>
+        </div>
+        <div id="footer"></div>
+
+
+</body>
+
+
+</html>

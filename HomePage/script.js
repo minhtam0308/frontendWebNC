@@ -81,28 +81,45 @@ $(document).ready(function ($) {
             scrollTop: $('.wrapper').outerHeight() - $(window).height()
         }, 500);
     });
-
+    
 });
 
-$('.arrow').click(function () {
-    $("html").animate({ scrollTop: $('html').prop("scrollHeight") }, 1200);
-});
+
 
 $(() => {
     // Load header xong rồi mới xử lý active
-    $("#header").load("header.html", function () {
+    $("#header").load("/HomePage/header.html", function () {
         const url = window.location.href;
         console.log("URL hiện tại: ", url);
 
         if (url.includes("index.html") || url.endsWith("/HomePage/")) {
             $('.home-page').addClass('active');
+            $('#header-home-page').hide();
         } else if (url.includes("catagory.html")) {
             $('.cata-gory').addClass('active');
         } else if (url.includes("contactt.html")) {
             $('.contact').addClass('active');
+<<<<<<< Updated upstream
+=======
+        }else if (url.includes("blog.html")) {
+            $('.blogg').addClass('active');
+        }else if (url.includes("BecomeAuthor.html")) {
+            $('.author').addClass('active');
+        }else if (url.includes("NewFeature.html")) {
+            $('.newbook').addClass('active');
+>>>>>>> Stashed changes
         }
+
+        
     });
 
     // Footer có thể load không cần xử lý gì thêm
-    $("#footer").load("footer.html");
+    $("#footer").load("/HomePage/footer.html");
 });
+
+function scrollToBottom() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth' // cuộn mượt
+    });
+  }
