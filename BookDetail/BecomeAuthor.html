@@ -1,245 +1,99 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Trở Thành Tác Giả-BioLaitBook</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <script src="bootstrap.min.js"></script>
-    <script src="jquery-3.7.1.slim.min.js"></script>
-  <link rel="stylesheet" href="/HomePage/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <style>
-        body {
-            background-color: #f0f7f1;
-            font-family: 'Inter', sans-serif;
-            color: #0b3d0b;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .navbar,footer {
-            background-color: #0b3d0b !important;
-        }
-
-        .navbar-brand,.nav-link,footer,footer a {
-            color: #d6f5d6 !important;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-link:hover {
-            text-decoration: underline;
-            color: #a5d6a7 !important;
-        }
-
-        .social-icon {
-            color: #d6f5d6;
-            font-size: 1.25rem;
-            margin-right: 0.75rem;
-        }
-
-        .social-icon:hover {
-            color: #a5d6a7;
-        }
-
-        .btn-primary {
-            background-color: #4caf50;
-            border-color: #4caf50;
-        }
-
-        .btn-primary:hover {
-            background-color: #388e3c;
-            border-color: #388e3c;
-        }
-
-        footer {
-            margin-top: auto;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-    </style>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Danh mục sách</title>
+        <script src="/jquery.js"></script>
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <link rel="stylesheet" href="/HomePage/footer.css">
+        <link href="card.css" rel="stylesheet">
+        <link href="/HomePage/main.css" rel="stylesheet">
+        <script src="/HomePage/script.js"></script>
 </head>
+<style>
+        .authorForm {
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 4px 12px rgba(26, 204, 141, 0.3); 
+                /* background-color: rgba(241, 241, 241, 0.647); */
+        }
+        #authojpg{
+                box-shadow: 0 4px 12px rgba(26, 204, 141, 0.3); 
+        }
+
+</style>
 
 <body>
-    <div class="container-fluid">
-
-        <!-- Navbar -->
-        <header id="header" class="header d-flex align-items-center position-relative bg">
-    <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo d-flex align-items-center">
-            <h1 class="sitename">BioLaitBook</h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="/HomePage/" class="home-page">Trang chủ</a></li>
-                <li><a href="/HomePage/catagory.html" class="cata-gory">Danh mục</a></li>
-                <li><a href="/BookDetail/BecomeAuthor.html" class="active">Tác giả</a></li>
-                <li><a href="/BookDetail/NewFeature.html">Sách mới</a></li>
-                <li><a href="/thuvien/Noibat.html" class="noibatt">Nổi bật</a></li>
-                <li><a href="/BookDetail/MyBook.html">Đã mua</a></li>
-                <li><a href="/BookDetail/ShoppingCart.html">Giỏ hàng</a></li>
-                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg"><span>Bài viết</span> <i
-                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="/HomePage/blog.html">Các bài viết</a></li>
-                       
-                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
-
-                    </ul>
-                </li>
-                <li><a href="/HomePage/contactt.html" class="contact">Liên hệ</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-    </div>
-</header>
-
-        <!-- Main content -->
-
-
-        <main class="container-xl my-5 rounded" style="background-color: #a5d6a7;">
-            <h1 class="text-success fw-semibold mb-4">Trở Thành Tác Giả</h1>
-            <p class="mb-4">Hãy điền thông tin dưới đây để đăng ký trở thành tác giả trên BioLaitBook. Chúng tôi sẽ liên hệ
-                với bạn sau khi nhận được đơn đăng ký.</p>
-
-            <form id="authorForm" novalidate>
-                <div class="mb-3">
-                    <label for="fullName" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên" required />
-                    <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+        <div class="wrapper" style="padding-bottom: 200px;">
+                <div class="wrap">
+                        <div id="header"></div>
+                        <main class="container-xl rounded text-black">
+                                <h1 class="text-success fw-semibold mt-5">Trở Thành Tác Giả</h1>
+                                <p class="mb-4">Hãy điền thông tin dưới đây để đăng ký trở thành tác giả trên
+                                        BioLaitBook. Chúng tôi sẽ liên
+                                        hệ
+                                        với bạn sau khi nhận được đơn đăng ký.</p>
+                                <div class="row">
+                                        <div class="col-8">
+                                                <form id="authorForm" novalidate class="authorForm p-3">
+                                                        <div class="mb-3">
+                                                                <label for="fullName" class="form-label">Họ và Tên <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" id="fullName"
+                                                                        placeholder="Nhập họ và tên" required />
+                                                                <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="email" class="form-label">Email <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="email" class="form-control" id="email"
+                                                                        placeholder="Nhập email" required />
+                                                                <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="phone" class="form-label">Số điện thoại</label>
+                                                                <input type="tel" class="form-control" id="phone"
+                                                                        placeholder="Nhập số điện thoại" />
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="bio" class="form-label">Tiểu sử ngắn gọn</label>
+                                                                <textarea class="form-control" id="bio" rows="4"
+                                                                        placeholder="Viết vài dòng giới thiệu về bạn"></textarea>
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="sampleWork" class="form-label">Tải lên bản mẫu tác phẩm (PDF
+                                                                        hoặc DOC)</label>
+                                                                <input class="form-control" type="file" id="sampleWork"
+                                                                        accept=".pdf,.doc,.docx" />
+                                                        </div>
+                
+                                                        <div class="mb-3">
+                                                                <label for="socialLinks" class="form-label">Liên kết mạng xã hội hoặc
+                                                                        website cá nhân</label>
+                                                                <input type="url" class="form-control" id="socialLinks"
+                                                                        placeholder="https://example.com" />
+                                                        </div>
+                
+                                                        <button type="submit" class="btn btn-primary">Gửi Đăng Ký</button>
+                                                </form>
+                                        </div>
+                                        <div class="col-4">
+                                                <img id="authojpg" src="/Img/author.jpg" class="mt-2 rounded-3" alt="">
+                                        </div>
+                                </div>
+                        </main>
                 </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="Nhập email" required />
-                    <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="bio" class="form-label">Tiểu sử ngắn gọn</label>
-                    <textarea class="form-control" id="bio" rows="4"
-                        placeholder="Viết vài dòng giới thiệu về bạn"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="sampleWork" class="form-label">Tải lên bản mẫu tác phẩm (PDF hoặc DOC)</label>
-                    <input class="form-control" type="file" id="sampleWork" accept=".pdf,.doc,.docx" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="socialLinks" class="form-label">Liên kết mạng xã hội hoặc website cá nhân</label>
-                    <input type="url" class="form-control" id="socialLinks" placeholder="https://example.com" />
-                </div>
-
-                <button type="submit" class="btn btn-primary">Gửi Đăng Ký</button>
-            </form>
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-auto py-5 rounded">
-            <div class="container-xl">
-                <div class="row text-light small">
-                    <div class="col-md-3 mb-4 mb-md-0">
-                        <div class="bg-success d-inline-block px-3 py-1 rounded fw-semibold mb-3">
-                            <img src="z6595130585566_490892b71b14c8f689b9b0446afb8de2.jpg" alt="" width="50px"
-                                height="50px">
-                        </div>
-                        <address class="not-italic mb-3" style="line-height: 1.3;">
-                            364 Innovation Drive<br />
-                            North Clarendon, VT 05759
-                        </address>
-                        <p class="mb-3">800-526-2778</p>
-                    </div>
-                    <div class="col-md-2 mb-4 mb-md-0">
-                        <h4 class="fw-semibold mb-3">Phát Hành Mới</h4>
-                        <ul class="list-unstyled">
-                            <li><a class="footer-link text-decoration-none" href="#">Duyệt Sách Theo Chủ Đề</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Nghệ Thuật</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Kiến Trúc</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Kinh Doanh</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Dành Cho Trẻ Em</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Sách Tô Màu</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Nấu Ăn</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Thủ Công</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Văn Hóa</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Trò Chơi</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Làm Vườn</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 mb-4 mb-md-0">
-                        <h4 class="fw-semibold mb-3">Bán Chạy</h4>
-                        <ul class="list-unstyled">
-                            <li><a class="footer-link text-decoration-none" href="#">Quà Tặng</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Lịch Sử</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Ngôn Ngữ</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Truyện Tranh</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Võ Thuật</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Văn Học</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Origami</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Tôn Giáo</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Du Lịch & Giải Trí</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Sức Khỏe</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 mb-4 mb-md-0">
-                        <h4 class="fw-semibold mb-3">Sách Của Tôi</h4>
-                        <ul class="list-unstyled">
-                            <li><a class="footer-link text-decoration-none" href="#">Trở Thành Tác Giả</a></li>
-                        </ul>
-                        <h4 class="fw-semibold mt-4 mb-3">Cộng Đồng</h4>
-                        <ul class="list-unstyled">
-                            <li><a class="footer-link text-decoration-none" href="#">Blog BioLaitBook</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Diễn Đàn BioLaitBook</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-1 mb-4 mb-md-0">
-                        <h4 class="fw-semibold mb-3">Về Chúng Tôi</h4>
-                        <ul class="list-unstyled">
-                            <li><a class="footer-link text-decoration-none" href="#">Liên Hệ</a></li>
-                            <li><a class="footer-link text-decoration-none" href="#">Tuyển Dụng</a></li>
-                        </ul>
-                    </div>
-                </div>
-        </footer>
-    </div>
+        </div>
+        <div id="footer"></div>
 
 
-    <script>
-        (function () {
-            'use strict';
-            const form = document.getElementById('authorForm');
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                if (!form.checkValidity()) {
-                    form.classList.add('was-validated');
-                    return;
-                }
-
-                // Here you can handle form submission, e.g., send data to server
-                alert('Đăng ký tác giả thành công! Chúng tôi sẽ liên hệ với bạn sớm.');
-                form.reset();
-                form.classList.remove('was-validated');
-            }, false);
-        })();
-    </script>
 </body>
+
 
 </html>

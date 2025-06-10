@@ -1,6 +1,7 @@
+
+<div class="arrow animated bounce" onclick="scrollToBottom()"></div>
 <header id="header" class="header d-flex align-items-center fixed-top bg">
-    <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
         <a href="index.html" class="logo d-flex align-items-center">
             <h1 class="sitename">BioLaitBook</h1>
@@ -10,18 +11,19 @@
             <ul>
                 <li><a href="/HomePage/" class="home-page">Trang chủ</a></li>
                 <li><a href="/HomePage/catagory.html" class="cata-gory">Danh mục</a></li>
-                <li><a href="/BookDetail/BecomeAuthor.html">Tác giả</a></li>
-                <li><a href="/BookDetail/NewFeature.html">Sách mới</a></li>
+
+                <li><a href="/BookDetail/BecomeAuthor.html" class="author">Tác giả</a></li>
+                <li><a href="/BookDetail/NewFeature.html" class="newbook">Sách mới</a></li>
                 <li><a href="/thuvien/Noibat.html" class="noibatt">Nổi bật</a></li>
                 <li><a href="/BookDetail/MyBook.html">Đã mua</a></li>
                 <li><a href="/BookDetail/ShoppingCart.html">Giỏ hàng</a></li>
-                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg"><span>Bài viết</span> <i
-                            class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg"><span>Bài viết</span> <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="ms-1 bi bi-chevron-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                  </svg></a>
                     <ul>
                         <li><a href="/HomePage/blog.html">Các bài viết</a></li>
-                       
-                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
 
+                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
                     </ul>
                 </li>
                 <li><a href="/HomePage/contactt.html" class="contact">Liên hệ</a></li>
@@ -31,3 +33,28 @@
 
     </div>
 </header>
+<div id="header-home-page">
+    <section id="hero" class="hero section" style="min-height: 17vh; ">
+        <img src="/Img/banner-image-bg-1.jpg" alt="" class="hero-bg">
+
+
+
+        <svg class="hero-waves" id="wave-anim" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+            <defs>
+                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+                </path>
+            </defs>
+            <g class="wave1">
+                <use xlink:href="#wave-path" x="50" y="3"></use>
+            </g>
+            <g class="wave2">
+                <use xlink:href="#wave-path" x="50" y="0"></use>
+            </g>
+            <g class="wave3">
+                <use xlink:href="#wave-path" x="50" y="9"></use>
+            </g>
+        </svg>
+
+    </section>
+</div>

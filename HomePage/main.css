@@ -23,9 +23,9 @@
 
 body {
   font-family: var(--default-font);
-  background-color: var(--background-color);
+  background-color: #345a33;
   color: var(--default-color);
-  /* height: 5000px; */
+
 }
 
 a {
@@ -66,7 +66,7 @@ h1 {
 .header {
   background-color: #345a33;
   color: var(--default-color);
-  padding: 20px 0;
+  padding: 13px 0;
   z-index: 10000;
   transition: background-color 0.3s ease;
 }
@@ -435,13 +435,6 @@ h1 {
   }
 }
 
-footer {
-  position: relative;
-  /* padding-top: 2000px; */
-  background-color: #577d55;
-  z-index: 0;
-  animation: bounceUpDown 3s infinite ease-in-out; /* Tạo hiệu ứng lên xuống */
-}
 
 
 
@@ -466,7 +459,7 @@ a.liquid-button {
   /* text-transform: uppercase; */
   width: 160px;
   overflow: hidden;
-  border-radius: 35px;
+  border-radius: 20px;
   background: transparent;
   /* border: 2px solid #fff; */
 }
@@ -503,7 +496,7 @@ a.liquid-button .liquid::before {
   left: 50%;
   transform: translate(-50%, -75%);
   /* background: #000; */
-  /* background: linear-gradient(135deg, #2c2c2ce2, #1a1a1a4a); */
+  background: linear-gradient(135deg, #2c2c2ce2, #1a1a1a4a);
 }
 
 a.liquid-button .liquid::before {
