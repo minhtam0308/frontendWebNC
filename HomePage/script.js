@@ -106,6 +106,10 @@ $(() => {
             $('.author').addClass('active');
         }else if (url.includes("NewFeature.html")) {
             $('.newbook').addClass('active');
+        }else if (url.includes("ShoppingCart.html")) {
+            $('.shopping-cart').addClass('active');
+        }else if (url.includes("Noibat.html")) {
+            $('.noibat').addClass('active');
         }
 
         

@@ -21,6 +21,22 @@
         width: 100%;
     }
 
+    .add-to-cart {
+        position: absolute;
+        bottom: 190px;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+        border-top: 1px solid #ccc;
+    }
+
+    .card:hover .add-to-cart {
+        bottom: 200px;
+        opacity: 1;
+    }
+
     .card {
         transition: transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out, border 0.4s ease-in-out;
         border: 2px solid black;
@@ -86,7 +102,7 @@
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
                     <!-- Bắt đầu 1 cuốn sách -->
-                    <div class="col" onclick="window.location.href='/BookDetail/Browse.html'">
+                    <div class="col">
                         <div class="card h-100 text-center shadow-sm border-0">
                             <img src="/Img/sach10.jpg" alt="Bìa sách" class="card-img-top rounded" />
                             <div class="card-body">
@@ -96,12 +112,23 @@
                                     250,000₫</p>
                                 <a href="Payment.html"><button class="btn btn-primary w-100">Mua
                                         Ngay</button></a>
+                                <div class="add-to-cart d-flex align-items-center justify-content-between px-3 py-2 quantity-control">
+                                    
+                                        <button class="btn btn-success btn-sm btn-decrease">-</button>
+                                        <span class=" mx-2 quantity-value">1</span>
+                                        <button class="btn btn-success btn-sm btn-increase">+</button>
+                                    
+                                    <button class="btn btn-warning btn-sm ms-auto">Thêm vào
+                                        giỏ</button>
+                                </div>
+                                
+
                             </div>
                         </div>
                     </div>
                     <!-- ... -->
 
-                    <div class="col" onclick="window.location.href='/BookDetail/Browse.html'">
+                    <div class="col" >
                         <div class="card h-100 text-center shadow-sm border-0">
                             <img src="/Img/sach11.jpg" alt="Bìa sách" class="card-img-top rounded" />
                             <div class="card-body">
@@ -111,6 +138,15 @@
                                     250,000₫</p>
                                 <a href="Payment.html"><button class="btn btn-primary w-100">Mua
                                         Ngay</button></a>
+                                        <div class="add-to-cart d-flex align-items-center justify-content-between px-3 py-2 quantity-control">
+                                    
+                                            <button class="btn btn-success btn-sm btn-decrease">-</button>
+                                            <span class=" mx-2 quantity-value">1</span>
+                                            <button class="btn btn-success btn-sm btn-increase">+</button>
+                                        
+                                        <button class="btn btn-warning btn-sm ms-auto">Thêm vào
+                                            giỏ</button>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -284,6 +320,26 @@
 
 
 </body>
-
+<script>
+    $(document).ready(function () {
+      $('.quantity-control').each(function () {
+        const $container = $(this);
+        const $value = $container.find('.quantity-value');
+  
+        $container.find('.btn-increase').click(function () {
+          let current = parseInt($value.text());
+          $value.text(current + 1);
+        });
+  
+        $container.find('.btn-decrease').click(function () {
+          let current = parseInt($value.text());
+          if (current > 1) {
+            $value.text(current - 1);
+          }
+        });
+      });
+    });
+  </script>
+  
 
 </html>

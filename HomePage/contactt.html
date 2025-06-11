@@ -12,20 +12,6 @@
     <link href="main.css" rel="stylesheet">
     <script src="script.js"></script>
 </head>
-<script>
-    
-    // luôn load mới css
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-        const href = link.getAttribute('href');
-
-        // Bỏ qua link CDN hoặc URL đã có "?"
-        if (!href || href.includes('http') || href.includes('?')) return;
-
-        // Gắn timestamp để phá cache
-        const newHref = `${href}?v=${Date.now()}`;
-        link.setAttribute('href', newHref);
-    });
-</script>
 <style>
     .wrapp {
       background-color: #596a27;

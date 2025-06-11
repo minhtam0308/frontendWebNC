@@ -1,452 +1,433 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../bootstrap.min.css">
-    <link href="../HomePage/main.css" rel="stylesheet">
-    <link href="./thuvien.css" rel="stylesheet">
-    <script rel="text/javascript" src="../jquery.js"></script>
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Thư viện</title>
-    <script>
-        $(() => {
-            $(".btn-next").click(
-                function () {
-                    $(this).css({
-                        'display': 'none'
-                    })
-                    $('.btn-pre').css({
-                        'display': 'block'
-                    })
-                    $('.card-container').css({
-                        'left': '-800px',
-                        'transition': '1s'
-                    })
-                }
-            )
-            $(".btn-pre").click(
-                function () {
-                    $(this).css({
-                        'display': 'none'
-                    })
-                    $('.btn-next').css({
-                        'display': 'block'
-                    })
-                    $('.card-container').css({
-                        'left': '0',
-                        'transition': '1s'
-                    })
-                }
-            )
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Danh mục sách</title>
+        <script src="/jquery.js"></script>
+        <script src="/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <link rel="stylesheet" href="/thuvien/thuvien.css">
+        <link rel="stylesheet" href="/HomePage/footer.css">
+        <link href="card.css" rel="stylesheet">
+        <link href="/HomePage/main.css" rel="stylesheet">
+        <script src="/HomePage/script.js"></script>
 
-            
+</head>
+<script>
+        $(() => {
+                $(".btn-next").click(
+                        function () {
+                                $(this).css({
+                                        'display': 'none'
+                                })
+                                $('.btn-pre').css({
+                                        'display': 'block'
+                                })
+                                $('.card-container1').css({
+                                        'left': '-800px',
+                                        'transition': '1s'
+                                })
+                        }
+                )
+                $(".btn-pre").click(
+                        function () {
+                                $(this).css({
+                                        'display': 'none'
+                                })
+                                $('.btn-next').css({
+                                        'display': 'block'
+                                })
+                                $('.card-container1').css({
+                                        'left': '0',
+                                        'transition': '1s'
+                                })
+                        }
+                )
+
+
         })
         function startTimer(duration, displayminis, dislaysecond) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                        minutes = parseInt(timer / 60, 10);
+                        seconds = parseInt(timer % 60, 10);
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+                        minutes = minutes < 10 ? "0" + minutes : minutes;
+                        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                displayminis.textContent = minutes;
-                dislaysecond.textContent = seconds;
-                if (--timer < 0) {
-                    timer = duration;
-                }
-            }, 1000);
+                        displayminis.textContent = minutes;
+                        dislaysecond.textContent = seconds;
+                        if (--timer < 0) {
+                                timer = duration;
+                        }
+                }, 1000);
         }
 
         window.onload = function () {
-            let fiveMinutes = 60 * 30 - 1,
-                displayminis = document.querySelector('#minis');
-            displaysecond = document.querySelector('#second');
-            startTimer(fiveMinutes, displayminis, displaysecond);
+                let fiveMinutes = 60 * 30 - 1,
+                        displayminis = document.querySelector('#minis');
+                displaysecond = document.querySelector('#second');
+                startTimer(fiveMinutes, displayminis, displaysecond);
         };
 
-    </script>
-</head>
-
-
-
-<body class="dark-background">
-        <header id="header" class="header d-flex align-items-center bg">
-    <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo d-flex align-items-center">
-            <h1 class="sitename">BioLaitBook</h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="/HomePage/" class="home-page">Trang chủ</a></li>
-                <li><a href="/HomePage/catagory.html" class="cata-gory">Danh mục</a></li>
-                <li><a href="/BookDetail/BecomeAuthor.html">Tác giả</a></li>
-                <li><a href="/BookDetail/NewFeature.html">Sách mới</a></li>
-                <li><a href="/thuvien/Noibat.html" class="noibatt active">Nổi bật</a></li>
-                <li><a href="/BookDetail/MyBook.html" >Đã mua</a></li>
-                <li><a href="/BookDetail/ShoppingCart.html">Giỏ hàng</a></li>
-                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg "><span>Bài viết</span> <i
-                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="/HomePage/blog.html">Các bài viết</a></li>
-                       
-                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
-
-                    </ul>
-                </li>
-                <li><a href="/HomePage/contactt.html" class="contact">Liên hệ</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-    </div>
-</header>
-    <section >
-        <div class="search-container">
-            <form class="d-flex flex-row position-relative search-container input-box">
-                <input type="search" class="form-control" id="example-search-input">
-
-                <button class="btn btn-outline-success border-0 position-absolute end-0" type="submit">
-                    <i class="fa fa-search"></i> Search
-                </button>
-            </form>
-        </div>
-
-        <div class="flashsale position-relative">
-            <div class="container py-3">
-                <div class="bg-white rounded-3 d-flex justify-content-between align-items-center px-4 py-3"
-                    style="max-width: 1200px; margin: 0 auto;">
-                    <div class="d-flex align-items-center gap-3" style="color: black;">
-                        <span class="flash-sale-text d-flex align-items-center gap-1">
-                            <span style="color: red;">FLA<span style="color:#facc15;">⚡</span>SH SALE</span>
-                        </span>
-                        <span>Kết thúc trong</span>
-                        <div class="d-flex align-items-center gap-1">
-                            <span class="countdown-box">00</span>
-                            <span class="countdown-sep">:</span>
-                            <span class="countdown-box" id="minis">30</span>
-                            <span class="countdown-sep">:</span>
-                            <span class="countdown-box" id="second">00</span>
-                        </div>
-                    </div>
-                    <a href="#" class="text-primary fw-semibold d-flex align-items-center gap-1"
-                        style="font-size: 0.875rem;">
-                        Xem tất cả<i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="scroll-container">
-                <div class="card-container">
-
-                    <!-- Card 1 -->
-                    <a href="/BookDetail/Browse.html">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/anh1.png"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">55.000 đ</span>
-                                <span class="discount-badge">-50%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="progress-container">
-                                <div class="progress-bar-custom" style="width: 60px;"></div>
-                                <span class="ms-3">Đã bán 12</span>
-                            </div>
-                        </div>
-
-                    </a>
-                    <!-- Card 2 -->
-                    <a href="/BookDetail/Browse.html">
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/anh2.jpg"
-                                alt="Book cover of Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nhất Hạnh, sepia photo of two monks" />
-                            <h3 class="fs-6 mb-2  title-card">Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nh...
-                    </h3>
-                    <div class=" d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">174.500 đ</span>
-                                <span class="discount-badge">-29%</span>
-                        </div>
-                        <div class="price-original mb-3">249.000</div>
-                        <div class="progress-container">
-                            <div class="progress-bar-custom" style="width: 40px;"></div>
-                            <span class="ms-3">Đã bán 11</span>
-                        </div>
-                </div>
-                </a>
-                <!-- Card 3 -->
-                <a href="/BookDetail/Browse.html">
-                    <div class="card bg-white card-custom p-3">
-                        <img src="../Img/anh3.jpg"
-                            alt="Book cover of Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ, blue sky with mother and child on bicycle" />
-                        <h3 class="fs-6 mb-2 title-card">Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ
-                        </h3>
-                        <div class="d-flex align-items-center gap-2 mb-1">
-                            <span class="price-sale">119.500 đ</span>
-                            <span class="discount-badge">-24%</span>
-                        </div>
-                        <div class="price-original mb-3">159.000</div>
-                        <div class="progress-container">
-                            <div class="progress-bar-custom" style="width: 50px;"></div>
-                            <span class="ms-3">Đã bán 14</span>
-                        </div>
-                    </div>
-                </a>
-                <!-- Card 4 -->
-                <a href="/BookDetail/Browse.html">
-                    <div class="card bg-white card-custom p-3">
-                        <img src="../Img/anh4.jpg"
-                            alt="Book cover of Khi Tài Nguyên Không Còn Khan Hiếm, blue cover with text and graph lines" />
-                        <h3 class="fs-6 mb-2 title-card" style="line-height:1.2;">Khi Tài Nguyên Không Còn Khan Hiếm
-                        </h3>
-                        <div class="d-flex align-items-center gap-2 mb-1">
-                            <span class="price-sale">122.000 đ</span>
-                            <span class="discount-badge">-35%</span>
-                        </div>
-                        <div class="price-original mb-3">188.000</div>
-                        <div class="progress-container">
-                            <div class="progress-bar-custom" style="width: 60px;"></div>
-                            <span class="ms-3">Đã bán 17</span>
-                        </div>
-                    </div>
-                </a>
-                <!-- Card 5 -->
-                <a href="/BookDetail/Browse.html">
-                    <div class="card bg-white card-custom p-3">
-                        <img src="../Img/anh5.jpg"
-                            alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
-                        <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...
-                        </h3>
-                        <div class="d-flex align-items-center gap-2 mb-1">
-                            <span class="price-sale">127.000 đ</span>
-                            <span class="discount-badge">-34%</span>
-                        </div>
-                        <div class="price-original mb-3">195.000</div>
-                        <div class="progress-container">
-                            <div class="progress-bar-custom" style="width: 30px;"></div>
-                            <span class="ms-3">Đã bán 5</span>
-                        </div>
-                    </div>
-                </a>
-                <!-- Card 5 -->
-                <a href="#xemchitiet">
-                    <div class="card bg-white card-custom p-3">
-                        <img src="../Img/anh5.jpg"
-                            alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
-                        <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...
-                        </h3>
-                        <div class="d-flex align-items-center gap-2 mb-1">
-                            <span class="price-sale">127.000 đ</span>
-                            <span class="discount-badge">-34%</span>
-                        </div>
-                        <div class="price-original mb-3">195.000</div>
-                        <div class="progress-container">
-                            <div class="progress-bar-custom" style="width: 30px;"></div>
-                            <span class="ms-3">Đã bán 5</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-
-        <button class="btn-next" aria-label="Next">
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-        <button class="btn-pre" aria-label="Next">
-            <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        </div>
-
-        <div class="container danhmuc-container py-3 px-4 ">
-            <i class="fa-solid fa-bars"></i>
-            <span>Danh mục Nổi Bật</span>
-            <div class="list-category d-flex justify-content-around">
-                <a href="/HomePage/cata-science.html">
-                    <div class="imgcate-container">
-                        <img src="../Img/danhmuc1.webp" alt="test">
-                        <div class="title-category">
-                            Đam Mỹ
-                        </div>
-                    </div>
-                </a>
-                <a href=" /HomePage/cata-science.html">
-                            <div class="imgcate-container">
-                                <img src="../Img/danhmuc2.webp" alt="test">
-                                <div class="title-category">
-                        Văn Học
-                    </div>
-                    </div>
-                </a>
-                <a href="/HomePage/cata-science.html">
-                                    <div class="imgcate-container">
-                                        <img src="../Img/danhmuc3.webp" alt="test">
-                                        <div class="title-category">
-                        Tâm Lý Kỹ Năng
-                    </div>
-                    </div>
-                </a>
-                 <a href=" #xemdanhmuc">
+</script>
+<body>
+        <div class="wrapper" style="padding-bottom: 200px; ">
+                <div class="wrap" >
+                        <div id="header"></div>
+                        <section class="mt-5 mx-auto shadow"  style="background-color: #4b7947; width: 170vh;padding: 50px 0px;border-radius: 20px;">
+                                <div class="shadow search-container rounded-2 float-end me-5">
+                                    <form class="d-flex flex-row position-relative search-container input-box">
+                                        <input type="search" class="form-control" id="example-search-input">
+                        
+                                        <button class="btn btn-outline-success border-0 position-absolute end-0" type="submit">
+                                            <i class="fa fa-search"></i> Search
+                                        </button>
+                                    </form>
+                                </div>
+                        
+                                <div class="flashsale position-relative">
+                                    <div class="container py-3">
+                                        <div class="flash bg-white rounded-3 d-flex justify-content-between align-items-center px-4 py-3"
+                                            style="max-width: 1200px; margin: 0 auto;">
+                                            <div class="d-flex align-items-center gap-3" style="color: black;">
+                                                <span class="flash-sale-text d-flex align-items-center gap-1">
+                                                    <span style="color: red;">FLA<span style="color:#facc15;">⚡</span>SH SALE</span>
+                                                </span>
+                                                <span>Kết thúc trong</span>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <span class="countdown-box">00</span>
+                                                    <span class="countdown-sep">:</span>
+                                                    <span class="countdown-box" id="minis">30</span>
+                                                    <span class="countdown-sep">:</span>
+                                                    <span class="countdown-box" id="second">00</span>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="text-primary fw-semibold d-flex align-items-center gap-1"
+                                                style="font-size: 0.875rem;">
+                                                Xem tất cả<i class="fas fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="scroll-container">
+                                        <div class="card-container1 card-container">
+                        
+                                            <!-- Card 1 -->
+                                            <a href="/BookDetail/Browse.html">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/anh1.png"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">55.000 đ</span>
+                                                        <span class="discount-badge">-50%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="progress-container">
+                                                        <div class="progress-bar-custom" style="width: 60px;"></div>
+                                                        <span class="ms-3">Đã bán 12</span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                                            <!-- Card 2 -->
+                                            <a href="/BookDetail/Browse.html">
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/anh2.jpg"
+                                                        alt="Book cover of Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nhất Hạnh, sepia photo of two monks" />
+                                                    <h3 class="fs-6 mb-2  title-card">Ân Tình - Tu Học Theo Con Đường Của Thiền Sư Thích Nh...
+                                            </h3>
+                                            <div class=" d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">174.500 đ</span>
+                                                        <span class="discount-badge">-29%</span>
+                                                </div>
+                                                <div class="price-original mb-3">249.000</div>
+                                                <div class="progress-container">
+                                                    <div class="progress-bar-custom" style="width: 40px;"></div>
+                                                    <span class="ms-3">Đã bán 11</span>
+                                                </div>
+                                        </div>
+                                        </a>
+                                        <!-- Card 3 -->
+                                        <a href="/BookDetail/Browse.html">
+                                            <div class="card bg-white card-custom p-3">
+                                                <img src="../Img/anh3.jpg"
+                                                    alt="Book cover of Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ, blue sky with mother and child on bicycle" />
+                                                <h3 class="fs-6 mb-2 title-card">Hiện Diện Bên Con - Ý Nghĩa Tối Hậu Của Việc Làm Cha Mẹ
+                                                </h3>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <span class="price-sale">119.500 đ</span>
+                                                    <span class="discount-badge">-24%</span>
+                                                </div>
+                                                <div class="price-original mb-3">159.000</div>
+                                                <div class="progress-container">
+                                                    <div class="progress-bar-custom" style="width: 50px;"></div>
+                                                    <span class="ms-3">Đã bán 14</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Card 4 -->
+                                        <a href="/BookDetail/Browse.html">
+                                            <div class="card bg-white card-custom p-3">
+                                                <img src="../Img/anh4.jpg"
+                                                    alt="Book cover of Khi Tài Nguyên Không Còn Khan Hiếm, blue cover with text and graph lines" />
+                                                <h3 class="fs-6 mb-2 title-card" style="line-height:1.2;">Khi Tài Nguyên Không Còn Khan Hiếm
+                                                </h3>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <span class="price-sale">122.000 đ</span>
+                                                    <span class="discount-badge">-35%</span>
+                                                </div>
+                                                <div class="price-original mb-3">188.000</div>
+                                                <div class="progress-container">
+                                                    <div class="progress-bar-custom" style="width: 60px;"></div>
+                                                    <span class="ms-3">Đã bán 17</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Card 5 -->
+                                        <a href="/BookDetail/Browse.html">
+                                            <div class="card bg-white card-custom p-3">
+                                                <img src="../Img/anh5.jpg"
+                                                    alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
+                                                <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...
+                                                </h3>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <span class="price-sale">127.000 đ</span>
+                                                    <span class="discount-badge">-34%</span>
+                                                </div>
+                                                <div class="price-original mb-3">195.000</div>
+                                                <div class="progress-container">
+                                                    <div class="progress-bar-custom" style="width: 30px;"></div>
+                                                    <span class="ms-3">Đã bán 5</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Card 5 -->
+                                        <a href="#xemchitiet">
+                                            <div class="card bg-white card-custom p-3">
+                                                <img src="../Img/anh5.jpg"
+                                                    alt="Book cover of Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, orange purple with meditating figure" />
+                                                <h3 class="fs-6 mb-2 title-card">Hào Quang Aura - Khám Phá Màu Sắc Năng Lượng Cá Nhân, Đán...
+                                                </h3>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <span class="price-sale">127.000 đ</span>
+                                                    <span class="discount-badge">-34%</span>
+                                                </div>
+                                                <div class="price-original mb-3">195.000</div>
+                                                <div class="progress-container">
+                                                    <div class="progress-bar-custom" style="width: 30px;"></div>
+                                                    <span class="ms-3">Đã bán 5</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                        
+                                    </div>
+                                </div>
+                        
+                                <button class="btn-next" aria-label="Next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                              </svg>
+                                </button>
+                                <button class="btn-pre" aria-label="Next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                              </svg>
+                                </button>
+                                </div>
+                        
+                                <div class="container danhmuc-container py-3 px-4 ">
+                                    <i class="fa-solid fa-bars"></i>
+                                    <span>Danh mục Nổi Bật</span>
+                                    <div class="list-category d-flex justify-content-around">
+                                        <a href="/HomePage/cata-science.html">
                                             <div class="imgcate-container">
-                                                <img src="../Img/danhmuc4.webp" alt="test">
+                                                <img src="../Img/danhmuc1.webp" alt="test">
                                                 <div class="title-category">
-                        Thiếu Nhi
-                    </div>
-                    </div>
-                </a>
-                 <a href=" #xemdanhmuc">
+                                                    Đam Mỹ
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href=" /HomePage/cata-science.html">
                                                     <div class="imgcate-container">
-                                                        <img src="../Img/danhmuc5.webp" alt="test">
+                                                        <img src="../Img/danhmuc2.webp" alt="test">
                                                         <div class="title-category">
-                        Sách học ngoại ngữ
-                    </div>
-                    </div>
-                </a>
-                 <a href=" #xemdanhmuc">
+                                                Văn Học
+                                            </div>
+                                            </div>
+                                        </a>
+                                        <a href="/HomePage/cata-science.html">
                                                             <div class="imgcate-container">
-                                                                <img src="../Img/danhmuc6.webp" alt="test">
+                                                                <img src="../Img/danhmuc3.webp" alt="test">
                                                                 <div class="title-category">
-                        Ngoại Văn
-                    </div>
-                    </div>
-                </a>
-                
+                                                Tâm Lý Kỹ Năng
+                                            </div>
+                                            </div>
+                                        </a>
+                                         <a href=" #xemdanhmuc">
+                                                                    <div class="imgcate-container">
+                                                                        <img src="../Img/danhmuc4.webp" alt="test">
+                                                                        <div class="title-category">
+                                                Thiếu Nhi
+                                            </div>
+                                            </div>
+                                        </a>
+                                         <a href=" #xemdanhmuc">
+                                                                            <div class="imgcate-container">
+                                                                                <img src="../Img/danhmuc5.webp" alt="test">
+                                                                                <div class="title-category">
+                                                Sách học ngoại ngữ
+                                            </div>
+                                            </div>
+                                        </a>
+                                         <a href=" #xemdanhmuc">
+                                                                                    <div class="imgcate-container">
+                                                                                        <img src="../Img/danhmuc6.webp" alt="test">
+                                                                                        <div class="title-category">
+                                                Ngoại Văn
+                                            </div>
+                                            </div>
+                                        </a>
+                                        
+                        
+                                    </div>            
+                                    
+                                </div>
+                        
+                                <div class=" container container-sale py-3 px-4 mt-3">
+                                    <i class=" fa-solid fa-bars"></i>
+                                    <span>Sản phẩm bán chạy</span>
+                        
+                                        
+                                        <div class="card-container d-flex justify-content-around">
+                        
+                                            <!-- Card 1 -->
+                                            <a href="/BookDetail/Browse.html">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/sale1.webp"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Hoàng tử bé(Tái Bản)</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">55.000 đ</span>
+                                                        <span class="discount-badge">-50%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="rating-container">
+                                                        <span>
+                                                        Đã bán: 209
+                                                        </span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                        
+                                            <!-- Card 1 -->
+                                            <a href="/BookDetail/Browse.html">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/sale2.webp"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Lớp học mật ngữ</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">52.000 đ</span>
+                                                        <span class="discount-badge">-52%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="rating-container">
+                                                        <span>
+                                                        Đã bán: 209
+                                                        </span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                        
+                                            <!-- Card 1 -->
+                                            <a href="#xemchitiet">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/sale3.webp"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Giúp trẻ làm chủ cảm xúc</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">75.000 đ</span>
+                                                        <span class="discount-badge">-30%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="rating-container">
+                                                        <span>
+                                                        Đã bán: 209
+                                                        </span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                                        </div>
+                        
+                                        <div class="card-container d-flex pt-2 ps-4 gap-lg-5">
+                        
+                                            <!-- Card 1 -->
+                                            <a href="#xemchitiet">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/sale5.webp"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Con trai con gái khác nhau ạ</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">55.000 đ</span>
+                                                        <span class="discount-badge">-50%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="rating-container">
+                                                        <span>
+                                                        Đã bán: 209
+                                                        </span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                        
+                                            <!-- Card 1 -->
+                                            <a href="#xemchitiet">
+                        
+                                                <div class="card bg-white card-custom p-3">
+                                                    <img src="../Img/sale4.webp"
+                                                        alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
+                                                    <h1 class="fs-6 mb-2 title-card">Bé học nói</h1>
+                                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                                        <span class="price-sale">52.000 đ</span>
+                                                        <span class="discount-badge">-52%</span>
+                                                    </div>
+                                                    <div class="price-original mb-3">110.000</div>
+                                                    <div class="rating-container">
+                                                        <span>
+                                                        Đã bán: 209
+                                                        </span>
+                                                    </div>
+                                                </div>
+                        
+                                            </a>
+                        
+                        
+                                        </div>
+                        
+                                </div>
+                        
+                        
+                            </section>
 
-            </div>            
-            
-        </div>
-
-        <div class=" container container-sale py-3 px-4 mt-3">
-            <i class=" fa-solid fa-bars"></i>
-            <span>Sản phẩm bán chạy</span>
-
-                
-                <div class="card-container d-flex justify-content-around">
-
-                    <!-- Card 1 -->
-                    <a href="/BookDetail/Browse.html">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/sale1.webp"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Hoàng tử bé(Tái Bản)</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">55.000 đ</span>
-                                <span class="discount-badge">-50%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="rating-container">
-                                <span>
-                                Đã bán: 209
-                                </span>
-                            </div>
-                        </div>
-
-                    </a>
-
-                    <!-- Card 1 -->
-                    <a href="/BookDetail/Browse.html">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/sale2.webp"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Lớp học mật ngữ</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">52.000 đ</span>
-                                <span class="discount-badge">-52%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="rating-container">
-                                <span>
-                                Đã bán: 209
-                                </span>
-                            </div>
-                        </div>
-
-                    </a>
-
-                    <!-- Card 1 -->
-                    <a href="#xemchitiet">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/sale3.webp"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Giúp trẻ làm chủ cảm xúc</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">75.000 đ</span>
-                                <span class="discount-badge">-30%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="rating-container">
-                                <span>
-                                Đã bán: 209
-                                </span>
-                            </div>
-                        </div>
-
-                    </a>
                 </div>
-
-                <div class="card-container d-flex pt-2 ps-4 gap-lg-5">
-
-                    <!-- Card 1 -->
-                    <a href="#xemchitiet">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/sale5.webp"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Con trai con gái khác nhau ạ</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">55.000 đ</span>
-                                <span class="discount-badge">-50%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="rating-container">
-                                <span>
-                                Đã bán: 209
-                                </span>
-                            </div>
-                        </div>
-
-                    </a>
-
-                    <!-- Card 1 -->
-                    <a href="#xemchitiet">
-
-                        <div class="card bg-white card-custom p-3">
-                            <img src="../Img/sale4.webp"
-                                alt="Book cover of Không Diệt Không Sinh Đừng Sợ Hãi by Thích Nhất Hạnh, yellow top with monk portrait" />
-                            <h1 class="fs-6 mb-2 title-card">Bé học nói</h1>
-                            <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="price-sale">52.000 đ</span>
-                                <span class="discount-badge">-52%</span>
-                            </div>
-                            <div class="price-original mb-3">110.000</div>
-                            <div class="rating-container">
-                                <span>
-                                Đã bán: 209
-                                </span>
-                            </div>
-                        </div>
-
-                    </a>
-
-
-                </div>
-
         </div>
+        <div id="footer"></div>
 
 
-    </section>
 </body>
+
+
 
 </html>

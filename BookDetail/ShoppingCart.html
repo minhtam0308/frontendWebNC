@@ -1,312 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="jquery-3.7.1.slim.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-      <link rel="stylesheet" href="/HomePage/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Danh mục sách</title>
+        <script src="/jquery.js"></script>
+        <script src="/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <link rel="stylesheet" href="/HomePage/footer.css">
+        <link href="card.css" rel="stylesheet">
+        <link href="/HomePage/main.css" rel="stylesheet">
+        <script src="/HomePage/script.js"></script>
+
 </head>
-
-
 <style>
-
-    body {
-      background-color: #f0f7f1;
-      font-family: 'Inter', sans-serif;
-      color: #0b3d0b;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .navbar,
-    footer {
-      background-color: #0b3d0b !important;
-    }
-
-    .navbar-brand,
-    .nav-link,
-    footer,
-    footer a {
-      color: #d6f5d6 !important;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      letter-spacing: 0.15em;
-    }
-
-    .footer-link:hover {
-      text-decoration: underline;
-      color: #a5d6a7 !important;
-    }
-
-    .social-icon {
-      color: #d6f5d6;
-      font-size: 1.25rem;
-      margin-right: 0.75rem;
-    }
-
-    .social-icon:hover {
-      color: #a5d6a7;
-    }
-
-    .card {
-      border: 1px solid #4caf50;
-      border-radius: 0.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      background-color: white;
-    }
-
-
-    .card-title {
-      color: #0b3d0b;
-      font-weight: 600;
-    }
-
-    .card-text {
-      color: #2e7d32;
-      font-weight: 600;
-    }
-
-    footer {
-      margin-top: auto;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
+        
 </style>
+</style>
+
 <body>
-    <main class="container-fluid">
-            <header id="header" class="header d-flex align-items-center position-relative bg">
-    <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo d-flex align-items-center">
-            <h1 class="sitename">BioLaitBook</h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="/HomePage/" class="home-page">Trang chủ</a></li>
-                <li><a href="/HomePage/catagory.html" class="cata-gory">Danh mục</a></li>
-                <li><a href="/BookDetail/BecomeAuthor.html">Tác giả</a></li>
-                <li><a href="/BookDetail/NewFeature.html">Sách mới</a></li>
-                <li><a href="/thuvien/Noibat.html" class="noibatt">Nổi bật</a></li>
-                <li><a href="/BookDetail/MyBook.html" >Đã mua</a></li>
-                <li><a href="/BookDetail/ShoppingCart.html" class="active">Giỏ hàng</a></li>
-                <li class="dropdown"><a href="/HomePage/blog.html" class="blogg "><span>Bài viết</span> <i
-                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="/HomePage/blog.html">Các bài viết</a></li>
-                       
-                        <li><a href="/BookDetail/Comunity.html">Cộng đồng</a></li>
-
-                    </ul>
-                </li>
-                <li><a href="/HomePage/contactt.html" class="contact">Liên hệ</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-    </div>
-</header>
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title mb-4 text-primary fw-semibold">
-                    Sản phẩm trong giỏ hàng
-                </h2>
-                <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th scope="col" style="width: 100px;">
-                                    Hình ảnh
-                                </th>
-                                <th scope="col">
-                                    Tên sản phẩm
-                                </th>
-                                <th scope="col" style="width: 120px;">
-                                    Giá
-                                </th>
-                                <th scope="col" style="width: 140px;">
-                                    Số lượng
-                                </th>
-                                <th scope="col" style="width: 120px;">
-                                    Tổng
-                                </th>
-                                <th scope="col" style="width: 60px;">
-                                    Xóa
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="cart-items">
-                            <tr class="cart-item" data-id="1" data-price="150000">
-                                <td>
-                                    <img alt=""class="img-fluid rounded" height="80" src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
-                                        width="80">
-                                </td>
-                                <td class="fw-medium text-secondary">Sách 1</td>
-                                <td class="fw-semibold text-secondary">150.000₫</td>
-                                <td>
-                                    <div class="input-group input-group-sm quantity-group">
-                                        <button aria-label="Giảm số lượng" class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
-                                        <input aria-label="Số lượng sản phẩm"
-                                            class="form-control quantity-input text-center" min="1" type="number"
-                                            value="1" />
-                                        <button aria-label="Tăng số lượng" class="btn btn-outline-secondary quantity-increase" type="button">+</button>
+        <div class="wrapper" style="padding-bottom: 200px; ">
+                <div class="wrap">
+                        <div id="header"></div>
+                        <main class="container-fluid mt-4 px-5">
+                                
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h2 class="card-title mb-4 text-primary fw-semibold">
+                                            Sản phẩm trong giỏ hàng
+                                        </h2>
+                                        <div class="table-responsive">
+                                            <table class="table align-middle">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th scope="col" style="width: 100px;">
+                                                            Hình ảnh
+                                                        </th>
+                                                        <th scope="col">
+                                                            Tên sản phẩm
+                                                        </th>
+                                                        <th scope="col" style="width: 120px;">
+                                                            Giá
+                                                        </th>
+                                                        <th scope="col" style="width: 140px;">
+                                                            Số lượng
+                                                        </th>
+                                                        <th scope="col" style="width: 120px;">
+                                                            Tổng
+                                                        </th>
+                                                        <th scope="col" style="width: 60px;">
+                                                            Xóa
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="cart-items">
+                                                    <tr class="cart-item" data-id="1" data-price="150000">
+                                                        <td>
+                                                            <img alt="" class="img-fluid rounded" height="80"
+                                                                src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
+                                                                width="80">
+                                                        </td>
+                                                        <td class="fw-medium text-secondary">Sách 1</td>
+                                                        <td class="fw-semibold text-secondary">150.000₫</td>
+                                                        <td>
+                                                            <div class="input-group input-group-sm quantity-group">
+                                                                <button aria-label="Giảm số lượng"
+                                                                    class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
+                                                                <input aria-label="Số lượng sản phẩm"
+                                                                    class="form-control quantity-input text-center" min="1" type="number"
+                                                                    value="1" />
+                                                                <button aria-label="Tăng số lượng"
+                                                                    class="btn btn-outline-secondary quantity-increase" type="button">+</button>
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-semibold text-primary total-price">
+                                                            150.000₫
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
+                                                                type="button">
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="cart-item" data-id="1" data-price="150000">
+                                                        <td>
+                                                            <img alt="" class="img-fluid rounded" height="80"
+                                                                src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
+                                                                width="80">
+                                                        </td>
+                                                        <td class="fw-medium text-secondary">Sách 1</td>
+                                                        <td class="fw-semibold text-secondary">150.000₫</td>
+                                                        <td>
+                                                            <div class="input-group input-group-sm quantity-group">
+                                                                <button aria-label="Giảm số lượng"
+                                                                    class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
+                                                                <input aria-label="Số lượng sản phẩm"
+                                                                    class="form-control quantity-input text-center" min="1" type="number"
+                                                                    value="1" />
+                                                                <button aria-label="Tăng số lượng"
+                                                                    class="btn btn-outline-secondary quantity-increase" type="button">+</button>
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-semibold text-primary total-price">
+                                                            150.000₫
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
+                                                                type="button">
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="cart-item" data-id="1" data-price="150000">
+                                                        <td>
+                                                            <img alt="" class="img-fluid rounded" height="80"
+                                                                src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
+                                                                width="80">
+                                                        </td>
+                                                        <td class="fw-medium text-secondary">Sách 1</td>
+                                                        <td class="fw-semibold text-secondary">150.000₫</td>
+                                                        <td>
+                                                            <div class="input-group input-group-sm quantity-group">
+                                                                <button aria-label="Giảm số lượng"
+                                                                    class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
+                                                                <input aria-label="Số lượng sản phẩm"
+                                                                    class="form-control quantity-input text-center" min="1" type="number"
+                                                                    value="1" />
+                                                                <button aria-label="Tăng số lượng"
+                                                                    class="btn btn-outline-secondary quantity-increase" type="button">+</button>
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-semibold text-primary total-price">
+                                                            150.000₫
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
+                                                                type="button">
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4">
+                                            <div class="fs-5 fw-semibold text-primary">
+                                                Tổng tiền:
+                                                <span id="cart-total">
+                                                    1.390.000₫
+                                                </span>
+                                            </div>
+                                            <button class="btn btn-primary btn-lg mt-3 mt-sm-0" id="checkout-btn" type="button">
+                                                Thanh Toán
+                                            </button>
+                                        </div>
                                     </div>
-                                </td>
-                                <td class="fw-semibold text-primary total-price">
-                                    150.000₫
-                                </td>
-                                <td class="text-center">
-                                    <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
-                                        type="button">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="cart-item" data-id="1" data-price="150000">
-                                <td>
-                                    <img alt=""class="img-fluid rounded" height="80" src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
-                                        width="80">
-                                </td>
-                                <td class="fw-medium text-secondary">Sách 1</td>
-                                <td class="fw-semibold text-secondary">150.000₫</td>
-                                <td>
-                                    <div class="input-group input-group-sm quantity-group">
-                                        <button aria-label="Giảm số lượng" class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
-                                        <input aria-label="Số lượng sản phẩm"
-                                            class="form-control quantity-input text-center" min="1" type="number"
-                                            value="1" />
-                                        <button aria-label="Tăng số lượng" class="btn btn-outline-secondary quantity-increase" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td class="fw-semibold text-primary total-price">
-                                    150.000₫
-                                </td>
-                                <td class="text-center">
-                                    <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
-                                        type="button">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="cart-item" data-id="1" data-price="150000">
-                                <td>
-                                    <img alt=""class="img-fluid rounded" height="80" src="https://storage.googleapis.com/a1aa/image/2c046d25-4f1b-445b-d8d2-a3ee95934354.jpg"
-                                        width="80">
-                                </td>
-                                <td class="fw-medium text-secondary">Sách 1</td>
-                                <td class="fw-semibold text-secondary">150.000₫</td>
-                                <td>
-                                    <div class="input-group input-group-sm quantity-group">
-                                        <button aria-label="Giảm số lượng" class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
-                                        <input aria-label="Số lượng sản phẩm"
-                                            class="form-control quantity-input text-center" min="1" type="number"
-                                            value="1" />
-                                        <button aria-label="Tăng số lượng" class="btn btn-outline-secondary quantity-increase" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td class="fw-semibold text-primary total-price">
-                                    150.000₫
-                                </td>
-                                <td class="text-center">
-                                    <button aria-label="Xóa sản phẩm" class="btn btn-link text-danger remove-item p-0"
-                                        type="button">
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </main>
+
                 </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4">
-                    <div class="fs-5 fw-semibold text-primary">
-                        Tổng tiền:
-                        <span id="cart-total">
-                            1.390.000₫
-                        </span>
-                    </div>
-                    <button class="btn btn-primary btn-lg mt-3 mt-sm-0" id="checkout-btn" type="button">
-                        Thanh Toán
-                    </button>
-                </div>
-            </div>
         </div>
-    </main>
-    <footer class="mt-5 py-5 rounded">
-      <div class="row text-light small">
-        <div class="col-md-3 mb-4 mb-md-0">
-          <div class="bg-success d-inline-block px-3 py-1 rounded fw-semibold mb-3">
-            <img src="z6595130585566_490892b71b14c8f689b9b0446afb8de2.jpg" alt="" width="50px" height="50px">
-          </div>
-          <address class="not-italic mb-3" style="line-height: 1.3;">
-            364 Innovation Drive<br />
-            North Clarendon, VT 05759
-          </address>
-          <p class="mb-3">800-526-2778</p>
-        </div>
-        <div class="col-md-2 mb-4 mb-md-0">
-          <h4 class="fw-semibold mb-3">Phát Hành Mới</h4>
-          <ul class="list-unstyled">
-            <li><a class="footer-link text-decoration-none" href="#">Duyệt Sách Theo Chủ Đề</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Nghệ Thuật</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Kiến Trúc</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Kinh Doanh</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Dành Cho Trẻ Em</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Sách Tô Màu</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Nấu Ăn</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Thủ Công</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Văn Hóa</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Trò Chơi</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Làm Vườn</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 mb-4 mb-md-0">
-          <h4 class="fw-semibold mb-3">Bán Chạy</h4>
-          <ul class="list-unstyled">
-            <li><a class="footer-link text-decoration-none" href="#">Quà Tặng</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Lịch Sử</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Ngôn Ngữ</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Truyện Tranh</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Võ Thuật</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Văn Học</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Origami</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Tôn Giáo</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Du Lịch & Giải Trí</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Sức Khỏe</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 mb-4 mb-md-0">
-          <h4 class="fw-semibold mb-3">Sách Của Tôi</h4>
-          <ul class="list-unstyled">
-            <li><a class="footer-link text-decoration-none" href="#">Trở Thành Tác Giả</a></li>
-          </ul>
-          <h4 class="fw-semibold mt-4 mb-3">Cộng Đồng</h4>
-          <ul class="list-unstyled">
-            <li><a class="footer-link text-decoration-none" href="#">Blog BioLaitBook</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Diễn Đàn BioLaitBook</a></li>
-          </ul>
-        </div>
-        <div class="col-md-1 mb-4 mb-md-0">
-          <h4 class="fw-semibold mb-3">Về Chúng Tôi</h4>
-          <ul class="list-unstyled">
-            <li><a class="footer-link text-decoration-none" href="#">Liên Hệ</a></li>
-            <li><a class="footer-link text-decoration-none" href="#">Tuyển Dụng</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        src="https://code.jquery.com/jquery-3.6.0.min.js">
-        </script>
-    <script crossorigin="anonymous" integrity="sha384-ENjdO4Dr2bkBIFxQpeoY9F6b6U6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-        </script>
-    <script>
+        <div id="footer"></div>
+
+
+</body>
+
+<script>
         function formatCurrency(number) {
             return number.toLocaleString('vi-VN') + '₫';
         }
@@ -382,5 +240,4 @@
             });
         });
     </script>
-</body>
 </html>

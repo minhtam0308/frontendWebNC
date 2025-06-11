@@ -6,8 +6,8 @@ section {
 
 .search-container {
     width: 30vw;
-    float: right;
-    margin-right: 3vw;
+    /* float: right; */
+    /* margin-right: 3vw; */
 }
 
 .flashsale {
@@ -95,9 +95,9 @@ section {
 }
 
 .scroll-container {
+    padding: 20px;
     overflow-x: auto;
     white-space: nowrap;
-    padding-bottom: 1rem;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
