@@ -110,6 +110,8 @@ $(() => {
             $('.shopping-cart').addClass('active');
         }else if (url.includes("Noibat.html")) {
             $('.noibat').addClass('active');
+        }else if (url.includes("MyBook.html")) {
+            $('.mybook').addClass('active');
         }
 
         
